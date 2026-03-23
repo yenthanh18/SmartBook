@@ -955,7 +955,7 @@ def health_check():
         {
             "status": "healthy",
             "dataset_loaded": True,
-            "vectorizer_loaded": tfidf is not None,
+            "vectorizer_loaded": vectorizer is not None,
             "similarity_loaded": similarity is not None,
             "total_books": int(len(df)),
         }
