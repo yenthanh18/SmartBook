@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartBook AI Store - Checkout</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#8582ff",
+              "secondary": "#515c70",
+              "error-container": "#f74b6d",
+              "on-secondary": "#eff2ff",
+              "surface-container-highest": "#d9dde0",
+              "surface-tint": "#4a40e0",
+              "error": "#b41340",
+              "surface-variant": "#d9dde0",
+              "surface-container": "#e5e9eb",
+              "on-secondary-container": "#475266",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#9795ff",
+              "on-primary-container": "#14007e",
+              "inverse-on-surface": "#9a9d9f",
+              "inverse-surface": "#0b0f10",
+              "tertiary-fixed-dim": "#c488ff",
+              "on-tertiary-fixed": "#270048",
+              "on-tertiary-fixed-variant": "#560094",
+              "primary-container": "#9795ff",
+              "background": "#f5f7f9",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#354053",
+              "secondary-container": "#d8e3fb",
+              "on-primary": "#f4f1ff",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#740ec2",
+              "on-error": "#ffefef",
+              "outline": "#747779",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-dim": "#a70138",
+              "primary-dim": "#3d30d4",
+              "surface-bright": "#f5f7f9",
+              "secondary-dim": "#455064",
+              "surface-container-high": "#dfe3e6",
+              "on-error-container": "#510017",
+              "primary-fixed-dim": "#8885ff",
+              "tertiary-container": "#ce9bff",
+              "secondary-fixed": "#d8e3fb",
+              "secondary-fixed-dim": "#cad5ed",
+              "on-background": "#2c2f31",
+              "tertiary": "#8126cf",
+              "tertiary-fixed": "#ce9bff",
+              "on-tertiary-container": "#4a0080",
+              "on-surface": "#2c2f31",
+              "on-tertiary": "#fbefff",
+              "on-primary-fixed-variant": "#1a0099",
+              "primary": "#4a40e0",
+              "on-secondary-fixed-variant": "#515c70"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .bg-gradient-primary {
+        background: linear-gradient(135deg, #4a40e0 0%, #9795ff 100%);
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2 font-headline">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="auto_stories">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Home</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Shop</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Bestsellers</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Deals</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">AI Picks</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90"><span class="material-symbols-outlined" data-icon="favorite">favorite</span></button>
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 text-indigo-600 border-b-2 border-indigo-600 pb-1 flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="text-xs font-bold bg-indigo-600 text-white rounded-full px-1.5 min-w-[1.2rem] h-[1.2rem] flex items-center justify-center">2</span>
+</button>
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-4 md:px-8 max-w-screen-2xl mx-auto">
+<!-- Cart Section (State: Active) -->
+<section class="mb-20" id="cart-section">
+<div class="flex flex-col md:flex-row gap-12" {{data:analytics:view_cart}}="">
+<!-- Left: Cart Items -->
+<div class="flex-grow space-y-8">
+<div class="flex items-end justify-between">
+<h1 class="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">Your Library Cart</h1>
+<p class="text-on-surface-variant font-medium">2 Items Selected</p>
+</div>
+<div class="space-y-4">
+<!-- Cart Item 1 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6 transition-all hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="w-24 h-36 rounded-md overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Minimalist blue book cover with abstract shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2a-Sk_TIgpraRTGocp0rv2MuYifIQeRZmptX-m-2PAHHZoJ0zRLqgY7QA_NKJ6A6kl6gRx0FnltEg-TPg8AuSlzKMuOJjHiRhD89J8U8fkj5i0wcuB1Z1Lw9bpFexsjPQUCkwyHQNhM_zMCX0fICQE3REv1xAA7EdK-u9HqdzTathwjPbhhWl_UukBRfXag8dqCwa0beKdh_7p2czamUmlFfguKpYrny5ILsUZeOHkvohDfwNooQuevbpz99bPty9kLnhRD2MHhM"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold font-headline text-on-surface">The Neural Network Era</h3>
+<p class="text-on-surface-variant text-sm">by Dr. Elias Thorne</p>
+</div>
+<button class="text-outline-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full">
+<button class="text-primary hover:bg-white rounded-full p-1 transition-all"><span class="material-symbols-outlined text-sm" data-icon="remove">remove</span></button>
+<span class="font-bold text-sm min-w-[1rem] text-center">1</span>
+<button class="text-primary hover:bg-white rounded-full p-1 transition-all"><span class="material-symbols-outlined text-sm" data-icon="add">add</span></button>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Subtotal</p>
+<p class="text-xl font-black text-primary">$42.00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Cart Item 2 -->
+<div class="bg-surface-container-lowest p-6 rounded-lg flex flex-col sm:flex-row items-center gap-6 transition-all hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="w-24 h-36 rounded-md overflow-hidden flex-shrink-0 bg-surface-container">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Vibrant digital art on a book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALXty2S_Ud0Ql7BUnYcSH1jIslTDQwWQag9zv4v-HqfNCDvWUvPBTvZhs7yOPoIpNhhYbtIrQV1gHwCsg4QXOc1tOjI9jO2JlXWjU4QN1-KH7w9JbGoR662C6onWuxh9lhBjhJq1oQrdqed_alPXTQgYW5WSkh3j7ipPHl205rbNTiAEkcVV_dHrMOzIFyvPI3T0CAghmHlSWBV2f23LmToxpXhv7BBBWRqa802CLli589DphDG8rqu8poougeW5E-3-v0Y7DWIHc"/>
+</div>
+<div class="flex-grow">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-xl font-bold font-headline text-on-surface">Silicon Dreams</h3>
+<p class="text-on-surface-variant text-sm">by Sarah J. Parker</p>
+</div>
+<button class="text-outline-variant hover:text-error transition-colors p-2">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+<div class="mt-6 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full">
+<button class="text-primary hover:bg-white rounded-full p-1 transition-all"><span class="material-symbols-outlined text-sm" data-icon="remove">remove</span></button>
+<span class="font-bold text-sm min-w-[1rem] text-center">1</span>
+<button class="text-primary hover:bg-white rounded-full p-1 transition-all"><span class="material-symbols-outlined text-sm" data-icon="add">add</span></button>
+</div>
+<div class="text-right">
+<p class="text-xs text-on-surface-variant uppercase tracking-widest font-bold">Subtotal</p>
+<p class="text-xl font-black text-primary">$29.50</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Summary Card -->
+<div class="w-full md:w-[400px] flex-shrink-0">
+<div class="bg-surface-container-low p-8 rounded-lg sticky top-32">
+<h2 class="text-2xl font-black font-headline mb-8">Order Summary</h2>
+<div class="space-y-4 mb-8">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span class="font-bold text-on-surface">$71.50</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Estimated Shipping</span>
+<span class="font-bold text-on-surface">Free</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Taxes</span>
+<span class="font-bold text-on-surface">$5.72</span>
+</div>
+<div class="pt-4 border-t border-outline-variant/20 flex justify-between items-end">
+<span class="text-lg font-bold">Total</span>
+<span class="text-3xl font-black text-primary">$77.22</span>
+</div>
+</div>
+<button class="w-full py-4 px-8 rounded-full bg-gradient-primary text-white font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2" {{data:analytics:begin_checkout}}="">
+                            Proceed to Checkout
+                            <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="mt-6 text-center text-xs text-on-surface-variant">Secure SSL Encrypted Checkout</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Checkout Section -->
+<section class="mb-20" id="checkout-section">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Left: Forms -->
+<div class="lg:col-span-8 space-y-12">
+<h1 class="text-4xl md:text-5xl font-black font-headline tracking-tighter text-on-surface">Checkout</h1>
+<!-- Customer Information -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">1</span>
+<h2 class="text-2xl font-bold font-headline">Customer Information</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="First Name" type="text"/>
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="Last Name" type="text"/>
+<input class="md:col-span-2 bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="Email Address" type="email"/>
+</div>
+</div>
+<!-- Shipping Address -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">2</span>
+<h2 class="text-2xl font-bold font-headline">Shipping Address</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<input class="md:col-span-2 bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="Street Address" type="text"/>
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="City" type="text"/>
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="Postal Code" type="text"/>
+</div>
+</div>
+<!-- Payment Method -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">3</span>
+<h2 class="text-2xl font-bold font-headline">Payment Method</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<label class="relative flex flex-col p-6 rounded-lg bg-surface-container-lowest cursor-pointer border-2 border-transparent hover:border-primary-container transition-all group has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input checked="" class="hidden" name="payment" type="radio"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="credit_card" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+<span class="font-bold text-sm">Credit Card</span>
+</label>
+<label class="relative flex flex-col p-6 rounded-lg bg-surface-container-lowest cursor-pointer border-2 border-transparent hover:border-primary-container transition-all group has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="hidden" name="payment" type="radio"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="account_balance_wallet">account_balance_wallet</span>
+<span class="font-bold text-sm">E-wallet</span>
+</label>
+<label class="relative flex flex-col p-6 rounded-lg bg-surface-container-lowest cursor-pointer border-2 border-transparent hover:border-primary-container transition-all group has-[:checked]:border-primary has-[:checked]:bg-primary/5">
+<input class="hidden" name="payment" type="radio"/>
+<span class="material-symbols-outlined text-primary mb-2" data-icon="payments">payments</span>
+<span class="font-bold text-sm">Cash on Delivery</span>
+</label>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-lg space-y-4">
+<input class="w-full bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="Card Number" type="text"/>
+<div class="grid grid-cols-2 gap-4">
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="MM/YY" type="text"/>
+<input class="bg-surface-container-low border-none rounded-DEFAULT p-4 focus:ring-2 focus:ring-primary-container focus:bg-white transition-all" placeholder="CVC" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Sticky Order Summary -->
+<div class="lg:col-span-4">
+<div class="bg-surface-container-low p-8 rounded-lg sticky top-32">
+<h2 class="text-2xl font-black font-headline mb-8">Review Order</h2>
+<div class="space-y-4 mb-8">
+<div class="flex items-center gap-4">
+<img class="w-12 h-16 object-cover rounded shadow-sm" data-alt="Small book cover preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq3I9VSFPHEeksNCBni4AE544saYmCMpyVkHQQCQZN-zN45NTPN1iM9ETXgvM-caZVFK73MKhOqrgniFesTgKk6iiaGBYlazHRsdYJ7sISBpRyx4aQLFUbXSK6yLDz2nFUorZ1QhMViH1rHikCAuZ49KM95pBDN9Sh4DhHaNBvCfmpZc03zOTwf8ChS4jAo4c84W5r2qzx-ZLTtyOAsSAbb8qMELoQ0UKVF5FyhBTb9en-rSLCN5ydPhgQo1frzMSOSQ8IUA4sqCA"/>
+<div class="flex-grow overflow-hidden">
+<p class="font-bold text-sm truncate">The Neural Network Era</p>
+<p class="text-xs text-on-surface-variant">Qty: 1 • $42.00</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<img class="w-12 h-16 object-cover rounded shadow-sm" data-alt="Small book cover preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnxlnBIQumgGQOAivAFe73DzWkALhTFwwsAbAxsjmegpQAGTgCUn-sfDjcJ5j3UNkjmcYPh1UxfnpPqrXTKRorQgg232_N_RCjwPtMMVCGPH3UV4uL6_-LHWPxfAs30wR-RN64DMcIWHydgEoQl2EDK3VZvdcaGso5CndITZxeGFK9lzIwOPPwpR1SRvUHY207jfkdd1avLdJTFwRHcSTIWeEbXt8SSC4cNwWCpyXfeI1s3Hy67edAAb9jCz7Yl7oWXvXF3To4mNk"/>
+<div class="flex-grow overflow-hidden">
+<p class="font-bold text-sm truncate">Silicon Dreams</p>
+<p class="text-xs text-on-surface-variant">Qty: 1 • $29.50</p>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20 space-y-3 mb-8">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Subtotal</span>
+<span class="font-bold">$71.50</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant">Total</span>
+<span class="text-2xl font-black text-primary">$77.22</span>
+</div>
+</div>
+<button class="w-full py-4 px-8 rounded-full bg-gradient-primary text-white font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all" {{data:analytics:purchase_demo}}="">
+                            Place Order
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Order Success State (Hidden by default or shown after action) -->
+<section class="max-w-2xl mx-auto text-center py-20 bg-surface-container-lowest rounded-xl shadow-xl hidden">
+<div class="mb-8 flex justify-center">
+<div class="w-24 h-24 rounded-full bg-tertiary-container/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-6xl text-tertiary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<h1 class="text-4xl font-black font-headline tracking-tighter mb-4">Order Successful!</h1>
+<p class="text-on-surface-variant text-lg mb-2">Thank you for curating your future with SmartBook AI.</p>
+<p class="text-sm font-bold bg-surface-container-low inline-block px-4 py-2 rounded-full mb-12">Order ID: #SB-99231-AI</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4 px-8">
+<button class="w-full sm:w-auto px-8 py-4 rounded-full bg-gradient-primary text-white font-bold hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    Track My Order
+                </button>
+<button class="w-full sm:w-auto px-8 py-4 rounded-full bg-surface-container-high text-on-surface font-bold hover:bg-surface-container-highest transition-all">
+                    Continue Shopping
+                </button>
+</div>
+</section>
+<!-- Empty Cart Illustration (Hidden) -->
+<section class="max-w-xl mx-auto text-center py-20 hidden">
+<div class="mb-8 relative inline-block">
+<span class="material-symbols-outlined text-9xl text-surface-container-highest" data-icon="auto_stories">auto_stories</span>
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-4xl text-primary animate-bounce" data-icon="search">search</span>
+</div>
+<h2 class="text-3xl font-black font-headline mb-4">Your Library is Empty</h2>
+<p class="text-on-surface-variant mb-12">Discover AI-curated gems that match your reading personality.</p>
+<button class="px-12 py-4 rounded-full bg-gradient-primary text-white font-bold text-lg shadow-lg hover:shadow-primary-fixed/30 hover:scale-[1.05] transition-all">
+                Browse AI Picks
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 mt-20 border-t border-slate-200/50">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-screen-2xl mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 mb-4 font-headline">SmartBook AI Store</div>
+<p class="text-sm text-slate-500 max-w-xs mb-6">Curating intelligence for readers through the power of advanced algorithmic discovery.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors" data-icon="facebook">social_leaderboard</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary transition-colors" data-icon="mail">mail</span>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-4">Company</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">About</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Categories</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-4">Support</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Support</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Contact</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-4">Legal</h4>
+<ul class="space-y-3">
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 text-sm transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-slate-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-sm text-slate-500 font-body">© 2024 SmartBook AI Store. Curating intelligence for readers.</div>
+<div class="flex gap-6 items-center">
+<span class="material-symbols-outlined text-slate-300" data-icon="payments">payments</span>
+<span class="material-symbols-outlined text-slate-300" data-icon="credit_card" style="font-variation-settings: 'FILL' 1;">credit_card</span>
+</div>
+</div>
+</footer>
+</body></html>

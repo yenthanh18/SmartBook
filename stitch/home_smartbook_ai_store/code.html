@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartBook AI Store - Your Intelligent Reading Companion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#8582ff",
+              "secondary": "#515c70",
+              "error-container": "#f74b6d",
+              "on-secondary": "#eff2ff",
+              "surface-container-highest": "#d9dde0",
+              "surface-tint": "#4a40e0",
+              "error": "#b41340",
+              "surface-variant": "#d9dde0",
+              "surface-container": "#e5e9eb",
+              "on-secondary-container": "#475266",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#9795ff",
+              "on-primary-container": "#14007e",
+              "inverse-on-surface": "#9a9d9f",
+              "inverse-surface": "#0b0f10",
+              "tertiary-fixed-dim": "#c488ff",
+              "on-tertiary-fixed": "#270048",
+              "on-tertiary-fixed-variant": "#560094",
+              "primary-container": "#9795ff",
+              "background": "#f5f7f9",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#354053",
+              "secondary-container": "#d8e3fb",
+              "on-primary": "#f4f1ff",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#740ec2",
+              "on-error": "#ffefef",
+              "outline": "#747779",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-dim": "#a70138",
+              "primary-dim": "#3d30d4",
+              "surface-bright": "#f5f7f9",
+              "secondary-dim": "#455064",
+              "surface-container-high": "#dfe3e6",
+              "on-error-container": "#510017",
+              "primary-fixed-dim": "#8885ff",
+              "tertiary-container": "#ce9bff",
+              "secondary-fixed": "#d8e3fb",
+              "secondary-fixed-dim": "#cad5ed",
+              "on-background": "#2c2f31",
+              "tertiary": "#8126cf",
+              "tertiary-fixed": "#ce9bff",
+              "on-tertiary-container": "#4a0080",
+              "on-surface": "#2c2f31",
+              "on-tertiary": "#fbefff",
+              "on-primary-fixed-variant": "#1a0099",
+              "primary": "#4a40e0",
+              "on-secondary-fixed-variant": "#515c70"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2 font-headline">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-indigo-600 border-b-2 border-indigo-600 pb-1 font-headline font-semibold tracking-tight" href="#">Home</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Shop</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Bestsellers</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Deals</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">AI Picks</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors font-headline font-semibold tracking-tight" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface hover:opacity-80 transition-all active:scale-90"><span class="material-symbols-outlined">favorite</span></button>
+<button class="p-2 text-on-surface hover:opacity-80 transition-all active:scale-90"><span class="material-symbols-outlined">shopping_cart</span></button>
+<button class="p-2 text-on-surface hover:opacity-80 transition-all active:scale-90"><span class="material-symbols-outlined">account_circle</span></button>
+</div>
+</div>
+</nav>
+<main class="pt-24 overflow-x-hidden">
+<!-- Hero Section -->
+<section class="relative px-8 pt-16 pb-24 md:pt-32 md:pb-40 bg-surface">
+<div class="max-w-screen-2xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="z-10">
+<span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-tertiary-container/30 text-on-tertiary-container font-semibold text-sm mb-8">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                        Powered by GPT-4 Digital Curation
+                    </span>
+<h1 class="font-headline text-6xl md:text-8xl font-extrabold tracking-tighter text-on-surface mb-8 leading-[0.9]">
+                        Discover Your Next <span class="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">Favorite Book</span> with AI.
+                    </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant max-w-xl mb-12 leading-relaxed">
+                        We don't just sell books. We curate intelligence. Our AI understands your taste to find stories that will change your perspective.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                            Explore Books <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="px-8 py-4 bg-surface-container-high text-on-surface font-bold rounded-full hover:scale-105 active:scale-95 transition-all">
+                            Try AI Recommendation
+                        </button>
+</div>
+</div>
+<div class="relative flex justify-center lg:justify-end">
+<!-- Asymmetric Book Collage -->
+<div class="relative w-full max-w-lg aspect-square">
+<div class="absolute top-0 right-0 w-64 h-80 rounded-lg overflow-hidden shadow-2xl rotate-6 z-30 transition-transform hover:rotate-0 duration-500">
+<img class="w-full h-full object-cover" data-alt="Cover of a minimal modern fiction book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlP-smjgepgXzy1LfbkAZijvOBX9Mzi2yf_Hz5n91rTgjirTeMGa4_ynpaXGZyXxsRHY6rNgYzefkiv9j8MY4W2I4WlXcqaUC2PdorhCoRJthXAYIg-sXfCeEst0__pIYfhpoxwwvTU4KKk4r-VdqLeT6RNu5adcvPxHHjl917YfTkW6p__ifbFfYGaFnezsohNfmkSzpzPcZVkBJ5nl0UY6jpWVjxH2c_4IJ1ju-sDX-wcKL4WLqpiydILGrk58WELcgrz6mNJzo"/>
+</div>
+<div class="absolute top-20 left-10 w-56 h-72 rounded-lg overflow-hidden shadow-xl -rotate-12 z-20 transition-transform hover:rotate-0 duration-500">
+<img class="w-full h-full object-cover" data-alt="Cover of an abstract business book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC15xUhDoV6mBjN3aMnUI2mW7SX43mbBftlf3uepMEK1_WS5tm3SlU0-ud8UemOgx-r_uQVbggg4CZR6tqL-ikZKfpoRvelQuOJ0OkiVVQZaMu4h3JxYY2s9ITnpvfdQPbke-SFlVATxkp1aYiDXcEksYVJWU692hYnwZHB4HGT1aGjOsr_E4hGLtcnhDaSh7z1yaoBuB_jNAhdPcllgyhXLLm2I4QdMSz8bOUdlX4WefO0V4gjFB9Ia8kcVN_8NjKytWkASj6jQWo"/>
+</div>
+<div class="absolute bottom-0 right-10 w-60 h-72 rounded-lg overflow-hidden shadow-2xl rotate-3 z-10 transition-transform hover:rotate-0 duration-500">
+<img class="w-full h-full object-cover" data-alt="Cover of a classic literature book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDquM59hSjWsE5N2uwX_f8FcZAqOARSGaIyjKoeuaR1IzBf5FAOQ8zzQDK1XmL7W-p53bfJ7L9H58mG2GEOGQefFgticoiG9JbP5W1VodK5lTUZoklXyXowvF9ISld8cw-5E5V7687n5T1W1jU0G-k5Hx-YfduURpAbacB030xOQgK80LJ-jwLe0CqBIo09YNiPJU4OZ1DGVUDIchHix-jqLbzu20aD6-l5RC6G41t1YaVjlfYMr_LMGefYrbB6Q-1VyziK5XRk1cM"/>
+</div>
+<!-- Abstract AI glow -->
+<div class="absolute -top-10 -left-10 w-full h-full bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute -bottom-10 -right-10 w-full h-full bg-tertiary/10 rounded-full blur-[120px] -z-10"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Search Bar -->
+<section class="px-8 -mt-12 mb-32 relative z-40">
+<div class="max-w-4xl mx-auto">
+<div class="relative bg-surface-container-lowest p-2 rounded-2xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)] flex items-center border border-primary-container/20">
+<span class="material-symbols-outlined px-6 text-on-surface-variant">search</span>
+<input class="w-full py-4 bg-transparent border-none focus:ring-0 text-lg placeholder:text-on-surface-variant/60 font-body" placeholder="Search books, authors, genres, or describe what you want to read..." type="text"/>
+<button class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-primary-dim transition-colors mr-1">
+                        AI Search
+                    </button>
+</div>
+</div>
+</section>
+<!-- AI Picks Carousel -->
+<section class="px-8 mb-32">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex items-end justify-between mb-12">
+<div>
+<h2 class="font-headline text-4xl font-extrabold text-on-surface mb-2 tracking-tight">AI Picks For You</h2>
+<p class="text-on-surface-variant text-lg">Curated intelligence based on your reading history.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">chevron_left</span></button>
+<button class="w-12 h-12 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined">chevron_right</span></button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto no-scrollbar pb-12 snap-x">
+<!-- Book Card 1 -->
+<div class="min-w-[320px] group snap-start bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="aspect-[3/4] rounded-md overflow-hidden mb-6 bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Intelligent tech book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYtZoEtF9lxY2CC95FPyLqiJ5yKZeBBgEzSG3ppVO6Pnm7YBw0MPrlYZKYd18idpoxMwLcW1yA_Pmd2W9NCgxtNQopbzxPPvTpgYimr-LqvlZDXRlCVj2vDbyZwN3Cmmcr23ArwtYUt6sWfMr8ZfYU3gMS99U8M6wC6fbAN5pKkW1QehJKHUsdd_0T4_NdCdG4iEPShAY5CYRTdhquw7oaxVnAYsoSigEVVplYMRy-bcBQJ4Q_QRIJPiE6jD_VGhFionOPg7FIGOA"/>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-bold text-xs uppercase tracking-widest">Tech Ethics</span>
+<h3 class="font-headline text-xl font-bold mt-3 text-on-surface">The Silent Algorithm</h3>
+<p class="text-on-surface-variant mb-4">Sarah Jenkins</p>
+<div class="flex items-center gap-1 text-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.9</span>
+<span class="text-xs text-on-surface-variant ml-2">(124 reviews)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-on-surface">$24.99</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 active:scale-90 transition-transform"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<!-- Repeat Book Cards with variations -->
+<div class="min-w-[320px] group snap-start bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="aspect-[3/4] rounded-md overflow-hidden mb-6 bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Philosophy book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaAt59G5thRsWsjFNrQ8gb0vt-rUflM0y51Mfza6QxwAex6C5WV5Cd3mlN7kGKr35YtZYdcwCFUewYS2f8n8iHrx4MN2Z5tmF5aRMnqHlFOKC0eZ2KTe5Wj3nz5fjXvt7bM7b5uzKEJg_iUUlctkp1WMZ6coCdjSzVLsIuaan37lPAD96vlAyyktL9tNAeGsYC86KesTrFJmuLRCx89qQBT2kxGVyxIpWaIt3Hn1wQGIzhEGQlEaxERy5yGSLPJH81rjHHh6JrCbk"/>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-bold text-xs uppercase tracking-widest">Philosophy</span>
+<h3 class="font-headline text-xl font-bold mt-3 text-on-surface">Digital Consciousness</h3>
+<p class="text-on-surface-variant mb-4">Dr. Marcus Thorne</p>
+<div class="flex items-center gap-1 text-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.8</span>
+<span class="text-xs text-on-surface-variant ml-2">(89 reviews)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-on-surface">$29.50</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 active:scale-90 transition-transform"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="min-w-[320px] group snap-start bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="aspect-[3/4] rounded-md overflow-hidden mb-6 bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Futuristic novel book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdyoiGIvOUgffloeZIl_dpqfhDhAV24fIv3K0ulvM15-rtTRudN_cExzWDz1bIf5tvh6d8WNKQi-VZkB84dZPOm-inDvcD0DvSvMk1VykSA2a_F9pX2BxTFv7mcI3HDaViTCwm09HydoecSU-gPg7hvJ86uxELn0YLMKWN-vJs5yL8UmAFT1yMv04Z9BIww8VC66PyeXdgmwwYmBNyAd3DnoYphHD4GqigBZzp6nPg1Gs0tnM24g5-Gr4-8z0DF0x8AfWIqgeEggg"/>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-bold text-xs uppercase tracking-widest">Sci-Fi</span>
+<h3 class="font-headline text-xl font-bold mt-3 text-on-surface">Beyond the Static</h3>
+<p class="text-on-surface-variant mb-4">Elena Rossi</p>
+<div class="flex items-center gap-1 text-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">5.0</span>
+<span class="text-xs text-on-surface-variant ml-2">(210 reviews)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-on-surface">$19.99</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 active:scale-90 transition-transform"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+<!-- Book Card 4 -->
+<div class="min-w-[320px] group snap-start bg-surface-container-lowest rounded-lg p-6 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="aspect-[3/4] rounded-md overflow-hidden mb-6 bg-surface-container shadow-inner">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Mindfulness book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXLBn6AMtSW97AE6w4hBwG9BdxKu04eObAmRou4HcPhrUfrXRGzIIGu79cjMFyH5crGAEX-oRKIalc44spL8mkQGi0laWM9JRIvlKSsvJAVqaFoHuF5QBh0r257QUvQn9TYVmWYR0aEkqxQbRFHpWfwLovJ0Sfy1IxCFAfaGVVImxZU5d5yRXqJpsmZbjAL7jTbCguwgvpRXoGrIuh5NxdVxXnkVN_8twv1jiColBJ055BzRWldgyblx4WiC18BGf033afJNlbq5o"/>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-container/30 text-tertiary font-bold text-xs uppercase tracking-widest">Self-Growth</span>
+<h3 class="font-headline text-xl font-bold mt-3 text-on-surface">The Mindful Loop</h3>
+<p class="text-on-surface-variant mb-4">Julian Vane</p>
+<div class="flex items-center gap-1 text-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold text-on-surface">4.7</span>
+<span class="text-xs text-on-surface-variant ml-2">(156 reviews)</span>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-2xl font-black text-on-surface">$18.50</span>
+<button class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:scale-110 active:scale-90 transition-transform"><span class="material-symbols-outlined">add_shopping_cart</span></button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trending Section - Grid Layout -->
+<section class="px-8 py-24 bg-surface-container-low">
+<div class="max-w-screen-2xl mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight mb-4">Trending Now</h2>
+<div class="h-1 w-24 bg-primary rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Trending Card -->
+<div class="bg-surface-container-lowest rounded-lg p-4 flex gap-4 hover:shadow-lg transition-all">
+<div class="w-24 h-32 rounded bg-surface shadow-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Trending book cover thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_boea74BHdnhZQiS8-gvYBSSQdgX40qNqHN2ZCWVixXSKEOyIa0R65h5wkSieOaV52_n1XD2Oc-rPws_W88fdBjShI30sH19ZhH1yTd_LfPxgyg0fF9Hrvb0jNBGwajZHjwoUkth16o2Mn7JQLVQR7hZ9skIDZa_p9Vvzck-HruIiPElECdlRZUCTH4TRb4BWjNnD6EqNXeCTCs86u0Lrpt8Q6JoWb6F0_qwIP6H8BPrJFE6IsiMPiMNw89kwGhtjbhL3mmc-uLs"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline font-bold text-on-surface leading-tight mb-1">Quantum Leap</h4>
+<p class="text-sm text-on-surface-variant mb-2">Paul Dirac</p>
+<span class="text-lg font-black text-primary">$21.00</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-4 flex gap-4 hover:shadow-lg transition-all">
+<div class="w-24 h-32 rounded bg-surface shadow-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Trending book cover thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiPYWRL1W6HoRcn20l9QOzmVMKnyZLZGwzG1RHnBjMr8brJGFjb3YhX22J_hPUgfnxVErW4JTMBNY_p4shjX1zgOXjIehiEd-nARjaaFz5OwbFiQSbeLVq4_mvM_dNuOSH2JDw3diywtM1zXgZ3y0bZb1qaMrTXrZgsE3m6djWj-fokpSmZZKK706qvMrQT0lrTUbBcqB0U-al7rTMM_54PTdXuYnongcuitVKoEEx22PIxw1mn9H1wvCVM2TzfzvNC9Dx4Vr7bp8"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline font-bold text-on-surface leading-tight mb-1">The Art of Now</h4>
+<p class="text-sm text-on-surface-variant mb-2">Leila Chen</p>
+<span class="text-lg font-black text-primary">$15.99</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-4 flex gap-4 hover:shadow-lg transition-all">
+<div class="w-24 h-32 rounded bg-surface shadow-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Trending book cover thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBylrAYMD9vOdHc1NKSBs4eO6Lh4Jq1rf8VWAvA4jBkrkBc2jMOxLMJx0W0fI5e88kwxm7MlK4i91aig3JqtAAMKcjk9hI2lFvBw30of9KyUq86_o2RFFjl1D7T4J6d48LesUWaJe6hCfiIybWfNq9RgEsOyJNqELFYWuWMFPQHfMLchXsFhBta9uhwDfgcuaXOE46oekithTcl_8bTZaswM2RJkwDu4HSf73pMXYClNnf4T0cokWUsxVazq-KSAdO-BH4n9cPoW4Y"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline font-bold text-on-surface leading-tight mb-1">Market Cycles</h4>
+<p class="text-sm text-on-surface-variant mb-2">Ray Dalio</p>
+<span class="text-lg font-black text-primary">$32.00</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-4 flex gap-4 hover:shadow-lg transition-all">
+<div class="w-24 h-32 rounded bg-surface shadow-md overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Trending book cover thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtjb-CobK5NKv9xT03l03C4sMiv9dcLQG06xvfBcICveBl17pevziwSHFrLXwK0-9-qTPZVJp5IcmTjYwSRLKk5EnbMu1esyQB7qGKAc7AfC87F7n9CjjcCw97stHj0wnubTx7x2dzGa0cpGsCL10Se3Q2okaS2fZJhMEtn5-0mslob8W2lRLeiII0_kEEZ3atT0HoD40Np3icWeoXBaxRc6Ud24jtb_vohMCMT3oHwB2jYHGxe36eM_VALn9NnWO64Xrr2BXQ1tM"/>
+</div>
+<div class="flex flex-col justify-center">
+<h4 class="font-headline font-bold text-on-surface leading-tight mb-1">Human Legacy</h4>
+<p class="text-sm text-on-surface-variant mb-2">E. O. Wilson</p>
+<span class="text-lg font-black text-primary">$19.50</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Hot Deals - Large Hero Format -->
+<section class="px-8 py-32 bg-surface">
+<div class="max-w-screen-2xl mx-auto rounded-xl overflow-hidden bg-on-surface p-12 md:p-24 relative">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/30 to-tertiary/30"></div>
+<div class="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<span class="inline-block px-4 py-1 rounded bg-error-container text-white font-black text-sm mb-6 uppercase tracking-widest">Hot Flash Sale</span>
+<h2 class="font-headline text-5xl md:text-7xl font-extrabold text-white mb-8 tracking-tighter leading-tight">Upgrade Your Library for Less.</h2>
+<p class="text-indigo-100 text-xl mb-12 max-w-md">Get up to 40% off on all AI-curated collections this weekend only.</p>
+<button class="px-10 py-5 bg-white text-on-surface font-black rounded-full hover:scale-105 transition-transform">Shop the Deals</button>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/10">
+<div class="relative mb-4">
+<span class="absolute top-0 right-0 bg-error-container text-white text-[10px] font-bold px-2 py-1 rounded">-30%</span>
+<img class="w-full aspect-[2/3] object-cover rounded shadow-lg" data-alt="Discounted book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYAvhRfB4uX__PwEsJeHIUxAaEIxteXjh6JeqGqiUYazlUS68Rvv4nodhycFHcu9RUmOyIz5sqWix8c5deoGBc7x1sZ6qSe40WlwvofWvfE3LMFs29eoF2V1SJHNT9G9CIM6MYKEpECfsvANY7_XVgUXOEh6ga0hf-ddZaTQ04TMPb90t81SWlPvqIo9EpmDnIYjARxF663UZwUdEoD1TWmkYiHQDe7BZriV2l3bKw_cICCJJyJALD5hhes7zrK_81HAoAnRlq6_0"/>
+</div>
+<p class="text-white font-bold text-sm truncate">The Creative Act</p>
+<div class="flex gap-2 items-center">
+<span class="text-white/60 line-through text-xs">$28.00</span>
+<span class="text-white font-black">$19.60</span>
+</div>
+</div>
+<div class="bg-white/10 backdrop-blur-md rounded-lg p-6 border border-white/10 mt-8">
+<div class="relative mb-4">
+<span class="absolute top-0 right-0 bg-error-container text-white text-[10px] font-bold px-2 py-1 rounded">-25%</span>
+<img class="w-full aspect-[2/3] object-cover rounded shadow-lg" data-alt="Discounted book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBop8gaVJy-Mk15rIzSJQxGlPphHHgAYeHimMhdizUrkpMnLghwEYihHvR2tHfbD1wat0WkfirY93ZwHmcfFHxHU9qqF6hhwwlWHdxnxJbkSaA8PmYY6Wm_AklspmeQFRp0xaTYRTWXMKfolt-9ffqn_N5NLQTotJ_JsWZk9pkP2HY4GpVlOQg0shiAJyr4DLG3xKOqc2XYiOhpf5aQJ7byUroEKovBu7VQikreDq6mbDKDixqmWNk9D7mpdpjzvxg8SS05m_tAm7s"/>
+</div>
+<p class="text-white font-bold text-sm truncate">Build for Tomorrow</p>
+<div class="flex gap-2 items-center">
+<span class="text-white/60 line-through text-xs">$24.00</span>
+<span class="text-white font-black">$18.00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Categories - Bento Grid -->
+<section class="px-8 mb-32">
+<div class="max-w-screen-2xl mx-auto">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface mb-12 tracking-tight">Curated Universes</h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 h-[600px]">
+<div class="md:col-span-2 relative group overflow-hidden rounded-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Cinematic fantasy landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX_gWjui5Y_aJtpFPWE9B2rdXwJzfugq5yBk-Q91XESvJb5sk4S3rQm6DFmDsMJAnrdZ8_swtzHviaSEapPycuEyIUQJv4USxlAqUQS25oBgMdXoVp3-tZGzXxI4GARKctH1cnSGzZUgeWlya1iH4ni_W_AZ_snUx4dLyR7-EOlHYVyIEVR98emdxh-c03vSHpPw4ccCxsC9zUVVQg8Y9og_fBeA-QpFbMAtXubJMGkioE-nLnTvYH0vzwkceKCSgVKz2lMg3xWnc"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline text-4xl font-black text-white mb-2">Fantasy</h3>
+<button class="text-white font-bold underline underline-offset-8">Explore Realm</button>
+</div>
+</div>
+<div class="md:row-span-2 relative group overflow-hidden rounded-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Modern business skyscrapers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzBPQPcujLh8JrW48TdMcGlcORHkAVzBAjc3kBLT9GVrjGWnEsb9Bg-ntNkGy-r1Ej23_1RbEknUtWloQRcbpJoF8o0_sErkrJZBxyNu4NaLQAmU7mUXIT5cO82ECD34g1zqDUTSxm6gL7o5KDv6ts7CufgFq465w_iURuRSpF5jGEyRUjJGguWMYbfgNLR5KC-YTIAW7Tu-YdtkaBd1BHXU_wsTjnGa5dfpwlAi0LOVt9zJmIj8IiXxgDlLZJdZB5AtNbmQS4fYE"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline text-3xl font-black text-white mb-2">Business</h3>
+<button class="text-white font-bold underline underline-offset-8">Level Up</button>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Technology circuitry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAnpRFKk3y1oQF_UFq3TP-6ESItfxjN6OvouNqVwYY5m4RLtImqjjN58Mp4UgYX_nP3HSZ2LAbuG27EI3K62eG4uj2UtlIWChJ6FomRyugNGJInM3huczcsDonMLVffexwaSCpyX2E6phZy7SmH2YUXnSS2t4axci5qSyakwcYpv3nzvlHkrpdT5-cBBb7B7Hghu8GazmYjCd7ttkg8r1RbD4LWcIF8M1k4nPNIWcXY5pwtGG_YWYAM3VnSg7xwADpGfuMYLuQBem8"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="font-headline text-2xl font-black text-white">Tech</h3>
+</div>
+</div>
+<div class="md:col-span-2 relative group overflow-hidden rounded-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Creative children reading" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcvdAQURUork2fFIdD3uSa3nqoTMRlyMFnmnl_W_HJ3QmtM_aYyuzjSTWAieH5J-yda0B_NlZbyQDKmGDdJTezQ8I3q-tbt9WF1xuhwymf--se4fThNC79OU1HgCRVQI8UX9hl3T5af8pLUsrfuZF4_7Vj8n8jn--Ixtw5KowJ216rm9CbGYG6UgCo5nO4w5twNhqyVVvTh3SMRb7qKhA1Hh-wT79AgjDDPlsXyTxKpVPocBS0bTUAsWd5a4lCGMRY9D49SLgjeSE"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-8 left-8">
+<h3 class="font-headline text-4xl font-black text-white mb-2">Children</h3>
+<button class="text-white font-bold underline underline-offset-8">Start Adventure</button>
+</div>
+</div>
+<div class="relative group overflow-hidden rounded-lg">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" data-alt="Peaceful sunset landscape" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmroi41iSXr-qQthBSVuipnHvwrdQBtYWm83KQ2lS3Zu2R1GhNweN9TrExIeBcJwnvP3Lqyp8E-eUlI8gupa83tiRscCq6k9_Z63vANOU16_LzRb7pR5T1ziUjWAAPEf8KKVXYb1m-LiNtwbHOl7VJ34QFRAALENM2DVzbQjF8b1dr1vPx5qUoY_ZWWY3D_LPaRCsbs6VYvfFBayYDnKy7nPRmWQmtAZJ7Y5kGAmMZf6HZFpbi2hBNs_z8UlXWU3dBj1WfCZtfw9s"/>
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+<div class="absolute bottom-4 left-4">
+<h3 class="font-headline text-2xl font-black text-white">Lifestyle</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Section -->
+<section class="px-8 py-20 bg-surface-container-low border-y border-outline-variant/10">
+<div class="max-w-screen-2xl mx-auto flex flex-wrap justify-between gap-12">
+<div class="flex items-center gap-6 max-w-sm">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl text-on-surface">Secure Checkout</h4>
+<p class="text-on-surface-variant">Military-grade encryption for every transaction you make.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 max-w-sm">
+<div class="w-16 h-16 rounded-2xl bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl text-on-surface">AI-Powered Discovery</h4>
+<p class="text-on-surface-variant">Our algorithms learn your tastes to suggest perfect reads.</p>
+</div>
+</div>
+<div class="flex items-center gap-6 max-w-sm">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/30 flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">library_books</span>
+</div>
+<div>
+<h4 class="font-headline font-bold text-xl text-on-surface">Curated Selections</h4>
+<p class="text-on-surface-variant">Every book in our store is hand-vetted by experts and AI.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="px-8 py-32">
+<div class="max-w-screen-xl mx-auto bg-gradient-to-r from-primary-dim to-primary rounded-3xl p-12 md:p-20 text-center relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+<div class="relative z-10">
+<h2 class="font-headline text-4xl md:text-5xl font-black text-white mb-6">Get Weekly Book Recommendations</h2>
+<p class="text-indigo-100 text-lg mb-10 max-w-2xl mx-auto">Join 50,000+ readers who receive our AI-powered curation of the world's most intelligent books every Friday.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto" onsubmit="return false;">
+<input class="flex-grow px-8 py-5 rounded-full bg-white border-none focus:ring-4 focus:ring-white/20 text-on-surface font-body" placeholder="Enter your email address" type="email"/>
+<button class="px-10 py-5 bg-on-surface text-white font-black rounded-full hover:scale-105 active:scale-95 transition-all">Subscribe Now</button>
+</form>
+</div>
+</div>
+</section>
+<!-- Blog Preview -->
+<section class="px-8 pb-32">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex items-end justify-between mb-16">
+<h2 class="font-headline text-4xl font-extrabold text-on-surface tracking-tight">The Reading Lab</h2>
+<a class="font-bold text-primary hover:underline underline-offset-8" href="#">Visit the Blog</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<article class="group">
+<div class="aspect-video rounded-lg overflow-hidden mb-8 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Person using a digital tablet for reading" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6zS36gSxDnTguNY3WDbIdLTH7vjKPSXp5Z2_d3nzgKbjxq_QIyK70IxyAs8LH3uuIy9DMxamezKGysonSyXsG2SIWl5qJGWfKZJnXbWg46Sb89zdEBXZg5UDnrdV1v93GMjid8wT_aDyrQcTyJnIxWXqCkoBpWu0-TdDSuWTwclUkTwpPfzAH5d6za-egNDIerNL6k_CdscQRbNa3imciPQwWEafMDSB5NSAxwOzu9-wsla9EdGhqbN7Ucw5tt6A4or0qr9icdYI"/>
+</div>
+<span class="text-tertiary font-black text-xs uppercase tracking-widest">Future of Reading</span>
+<h3 class="font-headline text-2xl font-bold mt-3 text-on-surface group-hover:text-primary transition-colors">How AI is Changing Our Reading Habits</h3>
+<p class="text-on-surface-variant mt-4 leading-relaxed">Artificial Intelligence isn't just writing books; it's helping us decide which ones are worth our time in an age of infinite content...</p>
+</article>
+<article class="group">
+<div class="aspect-video rounded-lg overflow-hidden mb-8 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Classic library bookshelves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7xSbHKnH6_K6Y4uaHFaKM0J2V3ivo1GQLbwbo5LlyFXTLX1QmTl1N6GoL0I-FYkFJALp0fQ6CW1RhA4Kg-MI-o7tOvdK91b_duCwHaZ-I-t5AziWGHH1Gb3hVls_nCw7RLVFJcsQdPT7hs8rlNl-G1BlxWnXzFPXo7mzRaCaULk0uaZuiKT_q_492fk2O8aPulz_QmszOooMpHmiXCHf2lkgBnvNEllzGGkGsKU_Gijb4g2edeV_SIbuNTfcm9jUnAoLRt7VP5FE"/>
+</div>
+<span class="text-tertiary font-black text-xs uppercase tracking-widest">Curation</span>
+<h3 class="font-headline text-2xl font-bold mt-3 text-on-surface group-hover:text-primary transition-colors">10 Books Every Tech Leader Needs to Read in 2024</h3>
+<p class="text-on-surface-variant mt-4 leading-relaxed">From systems thinking to the philosophy of consciousness, these are the titles our AI suggests for the modern leader...</p>
+</article>
+<article class="group">
+<div class="aspect-video rounded-lg overflow-hidden mb-8 bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Person deep in study with books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxKGdFWncMN0W37W261VL9iIn9JcExOcTIpojev6jsvsbHX4aQdTHLSRk1qpuM_V9JXOcOeRCkNgLPw8mSXN-VDGq1JhgtXL5NokWlaVFUnT4CeQwsdlGPYGK73_Vm-HtF2m9ofQUrWr8Icx1weEYCLcewCRF4n_qORhNvGvBqiGiW3Co7McUzkrwbEF5glEiFGX1o14iqGUW0mQb6ktdUPLnoi2-5TrzePEKDQcaWqS9Z8KifbxukR5ZNr5P6gvOrntyqORO-N3c"/>
+</div>
+<span class="text-tertiary font-black text-xs uppercase tracking-widest">Cognitive Science</span>
+<h3 class="font-headline text-2xl font-bold mt-3 text-on-surface group-hover:text-primary transition-colors">Deep Work vs. Rapid Reading: Finding the Balance</h3>
+<p class="text-on-surface-variant mt-4 leading-relaxed">Is speed reading actually helping you learn? We dive into the science of comprehension and focus in a distracted world...</p>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 w-full py-12 px-8 mt-20">
+<div class="max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 border-t border-slate-200/50 pt-16">
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 mb-6 font-headline">SmartBook AI Store</div>
+<p class="text-slate-500 max-w-xs mb-8">Curating intelligence for readers. The world's first book store powered by advanced semantic intelligence.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">share</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">camera</span>
+</a>
+<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:bg-primary hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined text-xl">mail</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-6 font-headline">Shop</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">All Books</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Bestsellers</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">New Releases</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Deals</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-6 font-headline">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Contact</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Shipping</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Returns</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold text-slate-900 mb-6 font-headline">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-all" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-slate-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-sm">© 2024 SmartBook AI Store. Curating intelligence for readers.</p>
+<div class="flex gap-8">
+<img class="h-6 opacity-50 grayscale" data-alt="Visa payment icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqDUfDyU3KWo9YHXP_pYK_QNd1AVmMstQppuAQRsE2N5NIysG9toD-qG2OpxYxJ3astALOL7KP7GMj_mVAI3-_PSmZnaqkkyXmmSUY57n4X_eRbGNy9KekK854Dy0oOmiYKg0BzqIAsLdWjO-SBrZjDhfm8BzL63FzJ-q0w0HmkSuZa5eO-I63kVyW2HUSm3-l1e8K1ANWKt2TzN2thiTOalnVAda0vRASyqotpSpXZ0G8e-Ha4urjxfsggvwkEej1B-ZSKJtynME"/>
+<img class="h-6 opacity-50 grayscale" data-alt="Mastercard payment icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGU9NV2KKgRqJPz8ki2fS_jDZHQHIcWNs7wSfmqh3ZH99DPgWHin-wLIUmCPH58RLjBw0ihBcI4juZi6EmBKq4vfSg06xiN-j6hckSjul-ozGCbQOL4wnRpuOcDz6KjlIka7m8-m2mYsITeTDWITb8TtHg-eQJjfWizyWRslYiJJsop2lf8TUR9CmYGUZElOFobL2lqJHfaoYK1NcT6zLwyMepqVM1HyxKld4WatN3z0Z5tZj97zDD8FRgfSQT8-kXwDnIGzSQND4"/>
+<img class="h-6 opacity-50 grayscale" data-alt="Apple Pay icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxyML5y3krQnkA9IAltnLnSruYlu_w1UyZ505HQ_bIacOMcQiFS4V1f8xiR2Q3ztnY2Zlieu8xF1dcxlext5nIJaqw9K0ZMB6IC5mML2_YooCKbERQb0x9geh2xLkt21b08PXR5URCRfIcNQnRM64JPGK2ZZC9YXdtcT_cNoMH9c7jMwzLAuLenhbPo3jklELyrLdiCJBj8vDkFsismL3WxC4fne2FhH-CdPVrmmy2vYfiEAbNDvSKCIaN_0d0Z4II1DD9XKEhAwU"/>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

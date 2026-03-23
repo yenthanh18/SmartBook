@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartBook AI Store - Product Detail</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#8582ff",
+              "secondary": "#515c70",
+              "error-container": "#f74b6d",
+              "on-secondary": "#eff2ff",
+              "surface-container-highest": "#d9dde0",
+              "surface-tint": "#4a40e0",
+              "error": "#b41340",
+              "surface-variant": "#d9dde0",
+              "surface-container": "#e5e9eb",
+              "on-secondary-container": "#475266",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#9795ff",
+              "on-primary-container": "#14007e",
+              "inverse-on-surface": "#9a9d9f",
+              "inverse-surface": "#0b0f10",
+              "tertiary-fixed-dim": "#c488ff",
+              "on-tertiary-fixed": "#270048",
+              "on-tertiary-fixed-variant": "#560094",
+              "primary-container": "#9795ff",
+              "background": "#f5f7f9",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#354053",
+              "secondary-container": "#d8e3fb",
+              "on-primary": "#f4f1ff",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#740ec2",
+              "on-error": "#ffefef",
+              "outline": "#747779",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-dim": "#a70138",
+              "primary-dim": "#3d30d4",
+              "surface-bright": "#f5f7f9",
+              "secondary-dim": "#455064",
+              "surface-container-high": "#dfe3e6",
+              "on-error-container": "#510017",
+              "primary-fixed-dim": "#8885ff",
+              "tertiary-container": "#ce9bff",
+              "secondary-fixed": "#d8e3fb",
+              "secondary-fixed-dim": "#cad5ed",
+              "on-background": "#2c2f31",
+              "tertiary": "#8126cf",
+              "tertiary-fixed": "#ce9bff",
+              "on-tertiary-container": "#4a0080",
+              "on-surface": "#2c2f31",
+              "on-tertiary": "#fbefff",
+              "on-primary-fixed-variant": "#1a0099",
+              "primary": "#4a40e0",
+              "on-secondary-fixed-variant": "#515c70"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7f9;
+            color: #2c2f31;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-50 flex items-center gap-2 font-['Plus_Jakarta_Sans']">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Home</a>
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1" href="#">Shop</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Bestsellers</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Deals</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">AI Picks</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all scale-95 active:scale-90">favorite</button>
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all scale-95 active:scale-90">shopping_cart</button>
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all scale-95 active:scale-90">account_circle</button>
+</div>
+</nav>
+</header>
+<main class="pt-32 px-4 md:px-8 max-w-screen-2xl mx-auto min-h-screen">
+<!-- Breadcrumbs -->
+<nav class="flex gap-2 text-sm text-on-surface-variant mb-8 font-medium">
+<a class="hover:text-primary transition-colors" href="#">Shop</a>
+<span class="material-symbols-outlined text-xs leading-none self-center">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Non-Fiction</a>
+<span class="material-symbols-outlined text-xs leading-none self-center">chevron_right</span>
+<span class="text-on-surface">Atomic Habits</span>
+</nav>
+<!-- Main Product Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left: Gallery Section -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-surface-container-lowest rounded-lg p-12 shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)] group cursor-zoom-in overflow-hidden">
+<img alt="Atomic Habits Book Cover" class="w-full h-auto object-contain rounded-sm transform group-hover:scale-105 transition-transform duration-700" data-alt="Modern book cover of Atomic Habits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl03X4fvNd_MluCrPu5iGRscTljuCW4v8nlbrjmAO3EPZtYH6jVG9uAiNHjpDIUwKTCPd4fqAoJKLnC_U315saRmI_K4_xrA_EvAtCgUM1DGFIfhWvEhMLRjeOC9dXqxkn_qrIKBLAI7P6oFWcXXCIzTDeg2z-tFWtiiVFcrUgOMjMDBK9s02pMfGRWjIMjdzMmm452pNE3Iuep4W04wbSXs4oK8XA0W-0nzVDL8F2LUrWJ5gGncC_faDhkQAxnn2DEgw1AKN5PbU"/>
+</div>
+<div class="flex gap-4 overflow-x-auto hide-scrollbar pb-2">
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-lowest rounded-md p-2 border-2 border-primary overflow-hidden">
+<img alt="Thumbnail 1" class="w-full h-full object-cover rounded-sm" data-alt="Main book cover thumbnail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvbn_NwG2Xh1OGNN5Dy8BG4JWwq3MLdq8BONty9N4_krOctdPBCllmHzVh_0qUeA8zbFZpBud0fEuhIQFdcNxdmN2Kb8hqZGPAYPWPGzm8rj0JmMD_MSLdYg_X8fRW8jp0RPLhc-iBjWPJOo4eZoPSqUwLTSJ8CBZ6bp5O6F7qw4KRw5ut6VL6fdSQXe8bz8p_RA-mUJ3aP4i9JCOt28K-JVvhcqpXgC4DVjS_sz9CB4NNB_92jbW74-J7WmP9hS1Qes62XCOqBRs"/>
+</button>
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-lowest rounded-md p-2 hover:bg-surface-container-low transition-colors overflow-hidden">
+<img alt="Thumbnail 2" class="w-full h-full object-cover rounded-sm" data-alt="Back view of the book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyzq2HQ1P9WgrILUZEDJSPETRtLxCk7_9CTAWKIXzHhxnZNTsuwT1UFBnsoy-zYa0NydOWe-LJijHFHKWaLcXle1TnSPbT4V1XqufnTGAUEZAK5-hBfCAAt3oBU3ecYLt6npYB3UtN85UkjGQiS2pS1LAb-et0RtRJK706o9Od8Ktj_ZtMEYoB9cJe3iO4HmhFPN3I2ugf-evFWITW8KB1dGOa9LrzoaEmq_qcJWLb4vh4aIF5wb-dWULuaa7eU9uV-K-Ux_hiSqg"/>
+</button>
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-lowest rounded-md p-2 hover:bg-surface-container-low transition-colors overflow-hidden">
+<img alt="Thumbnail 3" class="w-full h-full object-cover rounded-sm" data-alt="Inside pages of the book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXeyHo1UT3vM94oxw3gUhGxYccrqsD21SDe_Lw_e6v8nZ56RtRH8VgBYhmqc_WM98OnCC61YXM3ew7Czu5lwuZdd-06fmK96U7gTyujfHUsajtDvT023175d4y4mW4L5gftTMMRnTjfJRAfTaQhLux_XMPmFrhkICasbBN_gl2bdQJGEDK54MxsqzcNjPOm1wCcaRh9xhC4QS5Q4byjdOaHsIbAzoJpw5ct1tpOeT5wGMDHGaafwE-YvrDmDosb660vth2tciQBJ8"/>
+</button>
+<button class="w-24 h-32 flex-shrink-0 bg-surface-container-lowest rounded-md p-2 hover:bg-surface-container-low transition-colors overflow-hidden">
+<img alt="Thumbnail 4" class="w-full h-full object-cover rounded-sm" data-alt="Book spine and back cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-Ga9S49teYU--RUBKDdCGb6b7RtRORapVCDl5Hy7bEtV2xEIgH2XVYwfYsbkKYGSLArTUQCbsuqhq18UzMLJWe1dg6pXjmw7EAn1ugeyqkl_FH3iWePHmf6Mi7Tc3A4epz-Baxjhirl0NsC6lP2QKTuhV-M4pqPRPR-sPm4qey6TcdvJOUnsvsCOrIprdIysTHgvpWh5b09zI8da5EfhyhbT7nVNI2PH18MO7TMsfLuaRgtRXe1Gf74JT8JyezMIifHKqpp_Kzo"/>
+</button>
+</div>
+</div>
+<!-- Right: Product Info -->
+<div class="lg:col-span-7 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-4">
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                        AI Recommended
+                    </span>
+<span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase">Bestseller</span>
+</div>
+<h1 class="text-5xl font-extrabold text-on-surface leading-tight tracking-tighter mb-2">Atomic Habits</h1>
+<p class="text-xl text-on-surface-variant font-medium mb-4">An Easy &amp; Proven Way to Build Good Habits &amp; Break Bad Ones</p>
+<div class="flex items-center gap-4 mb-8">
+<p class="text-on-surface-variant">by <a class="text-primary font-semibold hover:underline decoration-primary/30 underline-offset-4" href="#">James Clear</a></p>
+<div class="w-1 h-1 rounded-full bg-outline-variant"></div>
+<div class="flex items-center gap-1">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 0.5;">star_half</span>
+</div>
+<span class="text-sm font-bold text-on-surface">(1,240 Reviews)</span>
+</div>
+</div>
+<div class="flex items-baseline gap-4 mb-10">
+<span class="text-4xl font-black text-on-surface">$16.99</span>
+<span class="text-xl text-on-surface-variant line-through opacity-60">$24.00</span>
+<span class="text-error font-bold text-sm bg-error-container/20 px-2 py-1 rounded">Save 30%</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-8 mb-8 space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-green-500"></span>
+<span class="font-bold text-on-surface">In Stock</span>
+<span class="text-on-surface-variant text-sm ml-2">Ships within 24 hours</span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<div class="flex items-center bg-surface-container-lowest rounded-full border border-outline-variant/20 px-2 py-1">
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<span class="w-12 text-center font-bold text-lg">1</span>
+<button class="w-10 h-10 flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex-grow md:flex-grow-0 md:px-12 py-4 rounded-full bg-gradient-to-r from-primary to-primary-container text-white font-bold text-lg shadow-[0px_12px_24px_-8px_rgba(74,64,224,0.4)] hover:scale-105 transition-transform active:scale-95">
+                            Add to Cart
+                        </button>
+<button class="p-4 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">favorite</span>
+</button>
+</div>
+<button class="w-full py-4 rounded-full border-2 border-primary text-primary font-bold text-lg hover:bg-primary/5 transition-colors">
+                        Buy Now
+                    </button>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">local_shipping</span>
+<div class="text-xs">
+<p class="font-bold">Free Shipping</p>
+<p class="text-on-surface-variant">Orders over $35</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">verified</span>
+<div class="text-xs">
+<p class="font-bold">Authentic</p>
+<p class="text-on-surface-variant">Certified copies</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">lock</span>
+<div class="text-xs">
+<p class="font-bold">Secure</p>
+<p class="text-on-surface-variant">Encrypted payment</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary/10 p-2 rounded-lg">history</span>
+<div class="text-xs">
+<p class="font-bold">30 Day Return</p>
+<p class="text-on-surface-variant">Easy exchange</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Information Section -->
+<div class="mt-24 bg-surface-container-low rounded-xl overflow-hidden shadow-sm">
+<div class="flex border-b border-outline-variant/10 bg-surface-container-lowest">
+<button class="px-8 py-6 text-primary font-bold border-b-4 border-primary">Description</button>
+<button class="px-8 py-6 text-on-surface-variant font-medium hover:text-on-surface transition-colors">Book Details</button>
+<button class="px-8 py-6 text-on-surface-variant font-medium hover:text-on-surface transition-colors">Reviews (1,240)</button>
+</div>
+<div class="p-8 md:p-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
+<div class="lg:col-span-2 space-y-6">
+<h3 class="text-2xl font-bold">The #1 New York Times bestseller</h3>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        No matter your goals, Atomic Habits offers a proven framework for improving—every day. James Clear, one of the world's leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results.
+                    </p>
+<p class="text-on-surface-variant leading-relaxed text-lg">
+                        If you're having trouble changing your habits, the problem isn't you. The problem is your system. Bad habits repeat themselves again and again not because you don't want to change, but because you have the wrong system for change. You do not rise to the level of your goals. You fall to the level of your systems. Here, you'll get a proven system that can take you to new heights.
+                    </p>
+</div>
+<div class="bg-surface-container-lowest rounded-lg p-8 h-fit space-y-6 shadow-sm">
+<h4 class="font-bold text-lg">Product Information</h4>
+<div class="space-y-4 text-sm">
+<div class="flex justify-between pb-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant">Publisher</span>
+<span class="font-semibold">Penguin Random House</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant">Publication Date</span>
+<span class="font-semibold">October 16, 2018</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant">Pages</span>
+<span class="font-semibold">320 Pages</span>
+</div>
+<div class="flex justify-between pb-2 border-b border-outline-variant/10">
+<span class="text-on-surface-variant">ISBN-13</span>
+<span class="font-semibold">978-0735211292</span>
+</div>
+<div class="flex justify-between">
+<span class="text-on-surface-variant">Language</span>
+<span class="font-semibold">English</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- AI Recommendations Carousel -->
+<section class="mt-24">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary">psychology</span>
+                        AI Recommended for You
+                    </h2>
+<p class="text-on-surface-variant mt-2">Based on your interest in habit formation and cognitive psychology.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-surface-container-low transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+<!-- Related Book 1 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-lg p-6 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 overflow-hidden">
+<img alt="Deep Work" class="w-full h-48 object-contain mb-4 transform group-hover:scale-110 transition-transform duration-500" data-alt="Book cover of Deep Work by Cal Newport" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVxG3j11Pv2GM0StJy3l8Fq5694YuJZjSlp6uAwyY0f9kiHyvDb4Ve-UwDP3mhITylkIlyN9INM_1o91EEUxbQFcpI5Qe6nDvUB8AtTF_CAVAaZ92x92MPcQpWk4OTMP_YnT9rcLqG2J2S-t-dHODYXG-u1Nw8RLHRtYcSO0cB366l9iefHI2kiD2KIkYRsYOBN7xl0kS4ESm56j14p6fWi-tBSyZsVpuQPVcNsoUlzF3_aSeRU6K29kt9Jvbmn3OmxiJUiHaQvXo"/>
+<h4 class="font-bold text-on-surface truncate">Deep Work</h4>
+<p class="text-xs text-on-surface-variant mb-4">Cal Newport</p>
+<div class="flex justify-between items-center">
+<span class="font-bold">$14.50</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">98% Match</span>
+</div>
+</div>
+</div>
+<!-- Related Book 2 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-lg p-6 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 overflow-hidden">
+<img alt="The Power of Habit" class="w-full h-48 object-contain mb-4 transform group-hover:scale-110 transition-transform duration-500" data-alt="Book cover of The Power of Habit" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEJTt8tcVMSNfhPFfXlQVz7bTeXhNl1YsyFxD91RP0ysUpdKyfr0-3EttAEjfB1ScaykBleZJuKNcZW8OzI7xtmCfyoyFuFmtPvvXnkff6uYZm7VQWRtywWQZzyXaVJWXaEidqW0FBwhH2usb1VoPE9twUcbvlVbq4CkZIoUTaGbZEsNmwzATVf_x-_P-66jGY4Lqu7GRqPcnsiKbVcwi2q9rhfte_TYSg3zvqgni_yekGg8DjqXKhzRBMvsHrxAlmGxU47wKXF6w"/>
+<h4 class="font-bold text-on-surface truncate">The Power of Habit</h4>
+<p class="text-xs text-on-surface-variant mb-4">Charles Duhigg</p>
+<div class="flex justify-between items-center">
+<span class="font-bold">$12.99</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">95% Match</span>
+</div>
+</div>
+</div>
+<!-- Related Book 3 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-lg p-6 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 overflow-hidden">
+<img alt="Tiny Habits" class="w-full h-48 object-contain mb-4 transform group-hover:scale-110 transition-transform duration-500" data-alt="Book cover of Tiny Habits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHr_1U1E_9BHhmnrnxrivF3AskfSSs04xHu8v6WzQVy3dFao0Hl5Cax24-4ElLexYLwnAQfTsud0qxl4wtOQXWv7p2C9t_RJWk0TJ-Qt1jMFmwch8BeNIcfGoAbxbKUiM0kQeb00_3UuXEIYXHoAgcNlkL9yWoNwkX8r67XdlL6JRTTcr_82zQdQkcJGbw536fQAZgBM_845VHnVPKf8KXwcqIJawjXr9XwgvJERINRAbxWtCvhomVZkOAUfsDeQMrmnm3GZURnAc"/>
+<h4 class="font-bold text-on-surface truncate">Tiny Habits</h4>
+<p class="text-xs text-on-surface-variant mb-4">BJ Fogg</p>
+<div class="flex justify-between items-center">
+<span class="font-bold">$15.20</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">92% Match</span>
+</div>
+</div>
+</div>
+<!-- Related Book 4 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-lg p-6 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 overflow-hidden">
+<img alt="Digital Minimalism" class="w-full h-48 object-contain mb-4 transform group-hover:scale-110 transition-transform duration-500" data-alt="Book cover of Digital Minimalism" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK-RPhXw0ccgAFRZMKqsYUNS1vRF8rH3GakGxgZ-9nInQeae6rCn13edej4u8YKSebq2H9P4BgBCfnKUOtzUaIUKakZ7Kh7byQFTNhfqXf-Rse6ntG04CLSzqeR6fRx296ksuLQTq7zgEfqRNYFUTLmdZh6ylK3heDFoqg21h_mBFllyQiiP2kcTbQyYo1Gzf6eRl-dQcRWYXkSsou8b_fxr3hOZzSoMZMDADqC3eTFjUZaV3OjOvkV_CGBEokw4ZjT5o5NMtZpRc"/>
+<h4 class="font-bold text-on-surface truncate">Digital Minimalism</h4>
+<p class="text-xs text-on-surface-variant mb-4">Cal Newport</p>
+<div class="flex justify-between items-center">
+<span class="font-bold">$13.80</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">89% Match</span>
+</div>
+</div>
+</div>
+<!-- Related Book 5 -->
+<div class="group cursor-pointer">
+<div class="bg-surface-container-lowest rounded-lg p-6 mb-4 shadow-sm group-hover:shadow-xl transition-all duration-500 overflow-hidden">
+<img alt="Focus" class="w-full h-48 object-contain mb-4 transform group-hover:scale-110 transition-transform duration-500" data-alt="Book cover focused on psychology" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEaDrKDlj9zNz9oyOFmHTbWdg-2mOMDDbBu_eCapjY8YANLCqI_Tw2eWd71rXtmgPVw5RiQTvBf0c1g3CBwSXe5AEXVqBk7k2AcrNEe8DHRaQD-XbXJb6f2HEkSTVNT-PvqInUjFQadc4j01b8ak-N229Xndsv2blIucyGCUIq8L43yVGLt_fUciXdIW6ExP-Bn4MWP7FsRe4ZfmzBahSoZj5qz_wW0RxpwvwOZDG9lHzfD9oXlLB8-uyZXohnWE6i9lb67HEFhQk"/>
+<h4 class="font-bold text-on-surface truncate">Indistractable</h4>
+<p class="text-xs text-on-surface-variant mb-4">Nir Eyal</p>
+<div class="flex justify-between items-center">
+<span class="font-bold">$14.99</span>
+<span class="bg-tertiary/10 text-tertiary text-[10px] px-2 py-0.5 rounded-full font-bold">87% Match</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- More from Same Author Section -->
+<section class="mt-24 mb-32">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h2 class="text-3xl font-extrabold">More by James Clear</h2>
+<p class="text-on-surface-variant mt-2">Explore notebooks and guides from the habit master.</p>
+</div>
+<div class="flex gap-2">
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_back</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-surface-container-low flex items-center justify-center hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Author Item 1 -->
+<div class="flex gap-4 items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-20 h-28 bg-surface-container-low rounded-md overflow-hidden flex-shrink-0">
+<img alt="The Clear Habit Journal" class="w-full h-full object-cover" data-alt="Journal cover by James Clear" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7qitdTfrj2Xrp9GnCyS7vWanRbaSNhqfT0WPfEYN2L1Jpkxkd0T0_SyPFpC_Z9pzYeLFhXTES2l95Ra_-t6kS7V7YdUOFQofBXaoolVKSQ85pTnqWCUFIxb9Mq5g4qTRl0T526HFQGIvHZqqdJoqwyRubb0Tc6EVjQA8J-Fwgzpl8uULiRmJLtD0rZA7yxzkcIFJDkSvZ8zk2nM8hLR8wI8crv0TAv4EBokowFC8LQHDFhSDntczKN4XhkCNEwo5r01kTnhUhvo8"/>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">The Clear Habit Journal</h5>
+<p class="text-xs text-on-surface-variant mb-2">Notebooks</p>
+<p class="font-bold text-primary">$26.00</p>
+</div>
+</div>
+<!-- Author Item 2 -->
+<div class="flex gap-4 items-center p-4 bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
+<div class="w-20 h-28 bg-surface-container-low rounded-md overflow-hidden flex-shrink-0">
+<img alt="Atomic Habits Workbook" class="w-full h-full object-cover" data-alt="Companion workbook for Atomic Habits" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcGgqT37Xw6azP-OgalbmcnlumpkBpTMPy_j57dDfIlR3PPus-sEDE3fZrVuFgoE2vShZP6Holc2JLoF4dPRQbtJbSEbb3sKmsWAcvXq_7AxqIeyqbZyIIWm5fVsWLgMuWrxNC1DpwlvAGA02cN62Jvgl75gYxmZOu0BEkcs1E_jVPczwXLrr9BflnH46GnCOyNFtP3RGhySEmey98Yk9peTT76v5EA9wUJuqk4V2Z6-swHp_wxMIkqXdHzDqhRBkF4LGvI88uutU"/>
+</div>
+<div>
+<h5 class="font-bold text-on-surface">Habit Trackers (Set of 3)</h5>
+<p class="text-xs text-on-surface-variant mb-2">Stationery</p>
+<p class="font-bold text-primary">$18.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-8 mt-20 bg-slate-50 dark:bg-slate-950 font-['Inter'] text-sm text-slate-500 dark:text-slate-400">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-screen-2xl mx-auto border-t border-slate-200/50 dark:border-slate-800/50 pt-12">
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-4">SmartBook AI Store</div>
+<p class="mb-6 max-w-xs">Curating intelligence for readers through artificial intelligence and hand-picked editorial expertise.</p>
+<div class="flex gap-4">
+<a class="hover:text-indigo-600 transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="hover:text-indigo-600 transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+<a class="hover:text-indigo-600 transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+</div>
+<div>
+<h6 class="font-bold text-slate-900 dark:text-slate-100 mb-4">Shop</h6>
+<ul class="space-y-2">
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Categories</a></li>
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Bestsellers</a></li>
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Deals</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-slate-900 dark:text-slate-100 mb-4">Support</h6>
+<ul class="space-y-2">
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Contact</a></li>
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Shipping</a></li>
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Returns</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-bold text-slate-900 dark:text-slate-100 mb-4">Legal</h6>
+<ul class="space-y-2">
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-indigo-500 hover:underline decoration-indigo-500 underline-offset-4 transition-opacity" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-slate-200/30 dark:border-slate-800/30 flex flex-col md:flex-row justify-between gap-4">
+<p>© 2024 SmartBook AI Store. Curating intelligence for readers.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-slate-400">payments</span>
+<span class="material-symbols-outlined text-slate-400">contactless</span>
+<span class="material-symbols-outlined text-slate-400">credit_card</span>
+</div>
+</div>
+</footer>
+</body></html>

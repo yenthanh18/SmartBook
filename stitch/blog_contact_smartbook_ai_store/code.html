@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartBook AI Store - Blog &amp; Support</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#8582ff",
+              "secondary": "#515c70",
+              "error-container": "#f74b6d",
+              "on-secondary": "#eff2ff",
+              "surface-container-highest": "#d9dde0",
+              "surface-tint": "#4a40e0",
+              "error": "#b41340",
+              "surface-variant": "#d9dde0",
+              "surface-container": "#e5e9eb",
+              "on-secondary-container": "#475266",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#9795ff",
+              "on-primary-container": "#14007e",
+              "inverse-on-surface": "#9a9d9f",
+              "inverse-surface": "#0b0f10",
+              "tertiary-fixed-dim": "#c488ff",
+              "on-tertiary-fixed": "#270048",
+              "on-tertiary-fixed-variant": "#560094",
+              "primary-container": "#9795ff",
+              "background": "#f5f7f9",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#354053",
+              "secondary-container": "#d8e3fb",
+              "on-primary": "#f4f1ff",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#740ec2",
+              "on-error": "#ffefef",
+              "outline": "#747779",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-dim": "#a70138",
+              "primary-dim": "#3d30d4",
+              "surface-bright": "#f5f7f9",
+              "secondary-dim": "#455064",
+              "surface-container-high": "#dfe3e6",
+              "on-error-container": "#510017",
+              "primary-fixed-dim": "#8885ff",
+              "tertiary-container": "#ce9bff",
+              "secondary-fixed": "#d8e3fb",
+              "secondary-fixed-dim": "#cad5ed",
+              "on-background": "#2c2f31",
+              "tertiary": "#8126cf",
+              "tertiary-fixed": "#ce9bff",
+              "on-tertiary-container": "#4a0080",
+              "on-surface": "#2c2f31",
+              "on-tertiary": "#fbefff",
+              "on-primary-fixed-variant": "#1a0099",
+              "primary": "#4a40e0",
+              "on-secondary-fixed-variant": "#515c70"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-effect {
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2 font-headline">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Home</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Shop</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Bestsellers</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Deals</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">AI Picks</a>
+<a class="text-indigo-600 border-b-2 border-indigo-600 pb-1" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface">favorite</span>
+</button>
+<button class="p-2 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface">shopping_cart</span>
+</button>
+<button class="p-2 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90">
+<span class="material-symbols-outlined text-on-surface">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-20 max-w-screen-2xl mx-auto px-8">
+<!-- Blog Hero Section -->
+<section class="mb-20">
+<div class="relative overflow-hidden rounded-xl bg-surface-container-lowest shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)] group">
+<div class="grid grid-cols-1 md:grid-cols-2">
+<div class="relative h-[400px] md:h-auto overflow-hidden">
+<img alt="Top 10 Fantasy Books" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Dreamy atmospheric pile of fantasy books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAUHSgNbPZ3iu7Qc6bSbQf4HosLNhAs6Y2aRLWcx0LhTfjPVHsyqxgJfJFeSy6ijsRQI0xLaXh2jsSQ-oMao6Z8dsCqqbuuEYis4N5kz7kjrZL1QxuhqTwGtyIQsn0qmKKqn5VmPEMmokD76WKh4ZsVafT6eRMtdVrnEvNDzTCFnLMC8itiYilK0z1OAnjJG-GIiwONpGE8UYz8SNG9-3wotgaawY_AKUPyzN-9mAoBwmIJTTABK23SbxhTD7Gj7wvWA8o7YXHhss"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent"></div>
+</div>
+<div class="p-12 flex flex-col justify-center gap-6">
+<div class="flex items-center gap-3">
+<span class="bg-tertiary/10 text-tertiary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Featured AI Pick</span>
+<span class="text-outline text-sm">5 min read</span>
+</div>
+<h1 class="text-4xl md:text-5xl font-headline font-extrabold tracking-tighter text-on-surface leading-tight">
+                            The Architect's Library: Top 10 Fantasy Books for 2024
+                        </h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                            Our AI curator has analyzed over 50,000 reader reviews to bring you the definitive list of world-building masterpieces that transcend the genre.
+                        </p>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform">
+                                Read Article
+                            </button>
+<span class="text-sm font-medium text-outline">By AI Curator • Oct 24</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Blog Grid & Sidebar -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Articles Grid -->
+<div class="lg:col-span-8 space-y-16">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Article 1 -->
+<article class="group cursor-pointer">
+<div class="aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="AI Book Recommendations" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Digital concept of AI reading books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAclz3heykeaGrlZ2oOuxvn0ALSxgFpYn-FLI6ioUtPv4TPblHYzsKwPoyhrUPF-rzEZTBapn_geI-fUmSTUDvJIqW35oaeIeTtSbddrA4tCsWMquZx7b8rNDmUJezlS3rBILbAXV3IsUjTlf8Q44Bb-XXSV_f4JmsDlGKmZP2LZki7W2ICQmb7PY48mxys7HEoNrb6Jf4MqDN42uDYLTUqkBYnEdlwrB_CxI4rsOhG8Z-7WbOQ1Xtik9x3QBlEDbN7nIcp2ieqeIo"/>
+</div>
+<span class="text-primary text-xs font-bold tracking-widest uppercase mb-3 block">Technology</span>
+<h3 class="text-2xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">How Neural Networks Understand Plot Twists</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Discover the deep learning models we use to categorize narrative structures and emotional resonance.</p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 20, 2024
+                        </div>
+</article>
+<!-- Article 2 -->
+<article class="group cursor-pointer">
+<div class="aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Classic Literature" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Sunlight hitting old classic book pages" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN02rgSH2XwHmlEVYZUIYT3k7xnvPvJdGEMTsc6Uq3gI4Pkk3Of2jtSAefnPNc5BIJal7Euf6izojKiIa6MbaOgEvGli7X-5AvYRNh4-TaLM5HxTiSZM8AIOM5U8bcjOrMY54nFoFco6dXAWzE6bUZ9gR0JgPWlrC--_uL3tKZ7lg33RqNLaPDtmwwFkx_Nz9iT9AZCJyhjU6Tnh2GLOMht_4gEryREYG9an3b_8ki06yTa3_1oWKWdxb-scUVnDVwZ5RF0ZyGTPU"/>
+</div>
+<span class="text-tertiary text-xs font-bold tracking-widest uppercase mb-3 block">Classics</span>
+<h3 class="text-2xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">Revisiting the Classics with Modern Eyes</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Why AI-driven sentiment analysis is giving us new perspectives on Dickens and Austen.</p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 18, 2024
+                        </div>
+</article>
+<!-- Article 3 -->
+<article class="group cursor-pointer">
+<div class="aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="Reading Habits" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Books stacked on a wooden desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA08y1OucfH9uEi-JpUU4o6806A9YWhafdW9ue40tkqlvxenv38ucU8utTn_wv2yhOZH5up092if8jIqkeWn0fV8A0pLg3IQoqo71ix0hc-t0JG6UrvPPPxXObCtf1YPRliPfgo088obKdVcDJablBSozM2TkpdJvbj3FT7UUdGs4mBIs2tR05eD37OMf-ruEVy2lcyecPCtyy2V4DLc2qKkLi3gmwhq1FlFnRAWw_qdCIBVw0QILFwXWbYJpPUsFrpFs4F0Y7D4PE"/>
+</div>
+<span class="text-secondary text-xs font-bold tracking-widest uppercase mb-3 block">Lifestyle</span>
+<h3 class="text-2xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">5 Tips for Building a Sustainable Reading Habit</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">In an age of distraction, here is how to reclaim your focus for long-form literature.</p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 15, 2024
+                        </div>
+</article>
+<!-- Article 4 -->
+<article class="group cursor-pointer">
+<div class="aspect-[16/10] rounded-lg overflow-hidden mb-6 bg-surface-container-low">
+<img alt="E-books vs Print" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Comparison of tablet and paper book" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzLVUcsAdOiFrPahX1xwmupgcAAReC02XQi7YHhOg6QirHLRAqde3YVrATF-5JMatWkTcUNhbcmkLGRGhoQxjIJhkPGFKkqMBOViMnsDWkrWVtr0bTfhjSpqlQZbj3MbA7qQrinG6VZLWVhwkOEwLm1FuaC1goFKZ8oQexxpN33E3NX149AYmLVWLALUGsN84d4r_Vpu8SAOYiETv2w-zn3SXzI5v7MyKBLnQMFVk5W73Qw3AMYeUsxMwA_6lqpgYxzt_oaUbP1vk"/>
+</div>
+<span class="text-primary text-xs font-bold tracking-widest uppercase mb-3 block">Trends</span>
+<h3 class="text-2xl font-headline font-bold mb-3 group-hover:text-primary transition-colors">The Physical vs Digital Debate in 2024</h3>
+<p class="text-on-surface-variant line-clamp-2 mb-4">Data reveals that hybrid reading is the new standard for the intelligent reader.</p>
+<div class="flex items-center gap-2 text-outline text-sm">
+<span class="material-symbols-outlined text-sm">calendar_today</span> Oct 12, 2024
+                        </div>
+</article>
+</div>
+</div>
+<!-- Sidebar -->
+<aside class="lg:col-span-4 space-y-12">
+<div class="p-8 bg-surface-container-low rounded-lg">
+<h4 class="font-headline font-bold text-xl mb-6">Search Articles</h4>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-none rounded-DEFAULT py-3 px-12 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Topics, authors, trends..." type="text"/>
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline">search</span>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded-lg">
+<h4 class="font-headline font-bold text-xl mb-6">Categories</h4>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 bg-primary text-on-primary rounded-full text-sm font-medium">Technology</span>
+<span class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-sm font-medium hover:bg-tertiary hover:text-white transition-colors cursor-pointer">Fantasy</span>
+<span class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-sm font-medium hover:bg-tertiary hover:text-white transition-colors cursor-pointer">Classics</span>
+<span class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-sm font-medium hover:bg-tertiary hover:text-white transition-colors cursor-pointer">Guides</span>
+<span class="px-4 py-2 bg-surface-container-highest text-on-surface rounded-full text-sm font-medium hover:bg-tertiary hover:text-white transition-colors cursor-pointer">AI Research</span>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded-lg">
+<h4 class="font-headline font-bold text-xl mb-6">Recent Posts</h4>
+<ul class="space-y-6">
+<li class="flex gap-4 items-center group cursor-pointer">
+<div class="w-16 h-16 rounded-md bg-surface-container-highest flex-shrink-0 overflow-hidden">
+<img alt="Library" class="w-full h-full object-cover" data-alt="Small thumbnail of library" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaBNvCp90wKEsHoAyfcPxhgM_oBaLjfjen1KdVgG4h691H8Gh0w6sMW3qnCYaehy2k2VvTm-mY8D7F_2IYlIXKPoD3DAhdhOrOjt2wJwD5krsXKxOt6vUnMyJEs_FakX1wpquq00kf5Um1sZXIpCk9HzDPPV942kdYbFUH7V9W2laeLpDkN6AghgVutwFH3nsvUW31rxmMGw5ekSW8JlKP3VUKtg12s03443gY2tjx3pw4H_KplqYf8V_EDb7A8-bjKaOHEiibFYM"/>
+</div>
+<div>
+<h5 class="text-sm font-bold group-hover:text-primary transition-colors">Understanding AI Curation</h5>
+<span class="text-xs text-outline">Oct 05, 2024</span>
+</div>
+</li>
+<li class="flex gap-4 items-center group cursor-pointer">
+<div class="w-16 h-16 rounded-md bg-surface-container-highest flex-shrink-0 overflow-hidden">
+<img alt="Pages" class="w-full h-full object-cover" data-alt="Close up of book pages" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBezEhRN5vDO7HrgxAXQ0GMSOYBml1VH2G9g1wMdT2bXAORULqInKbuTWHGdE6EM9stYiKAeV-la8dZ3lXJ5LnOTwzx65DWPezPLwKCweL2__I72tqzTMC7p6KqtNnWqGfT-fRaavSSEC1vYHMoTfkinEKN8IJC0n4CNOvL8B3iK3viYBvzJQPqLgWCTHwgN4dl-vNAqzpDfbKEXtpTa-bmXNZdV1yO8CQ4buGFq-ZxjkJuYzCNFY4phcMzb4_gIqzIBu7c7Gg_0Lc"/>
+</div>
+<div>
+<h5 class="text-sm font-bold group-hover:text-primary transition-colors">The Future of Audiobooks</h5>
+<span class="text-xs text-outline">Oct 02, 2024</span>
+</div>
+</li>
+</ul>
+</div>
+</aside></div>
+<!-- Contact Section -->
+<section class="mt-40 border-t border-outline-variant/10 pt-40" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div class="space-y-12">
+<div class="space-y-6">
+<h2 class="text-5xl font-headline font-black tracking-tighter text-on-surface">Get in Touch</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed max-w-md">
+                            Have a question about a book recommendation or our AI technology? Our support team is here to help you navigate the intelligence library.
+                        </p>
+</div>
+<div class="space-y-8">
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Email Us</h4>
+<p class="text-on-surface-variant">support@smartbookai.store</p>
+</div>
+</div>
+<div class="flex items-start gap-6">
+<div class="w-12 h-12 rounded-full bg-tertiary/10 flex items-center justify-center text-tertiary flex-shrink-0">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<h4 class="font-bold text-lg">Call Support</h4>
+<p class="text-on-surface-variant">+1 (888) SMART-AI</p>
+</div>
+</div>
+</div>
+<!-- FAQ Preview -->
+<div class="p-8 bg-surface-container-low rounded-xl space-y-4">
+<h4 class="font-headline font-bold text-lg">Quick FAQs</h4>
+<details class="group py-2 border-b border-outline-variant/20">
+<summary class="flex justify-between items-center cursor-pointer list-none font-medium">
+                                How does AI curation work?
+                                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="pt-2 text-sm text-on-surface-variant">We use proprietary LLMs to analyze narrative arcs, vocabulary complexity, and user reviews to match books to your unique reading profile.</p>
+</details>
+<details class="group py-2 border-b border-outline-variant/20">
+<summary class="flex justify-between items-center cursor-pointer list-none font-medium">
+                                Can I request a category?
+                                <span class="material-symbols-outlined group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<p class="pt-2 text-sm text-on-surface-variant">Absolutely! Reach out via the form and our curating team will review your suggestions for future grid additions.</p>
+</details>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-12 rounded-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-on-surface-variant px-1">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-DEFAULT py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-on-surface-variant px-1">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-DEFAULT py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="john@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-on-surface-variant px-1">Subject</label>
+<input class="w-full bg-surface-container-low border-none rounded-DEFAULT py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="How can we help?" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-on-surface-variant px-1">Message</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-DEFAULT py-3 px-4 focus:ring-2 focus:ring-primary-container transition-all" placeholder="Tell us more about your inquiry..." rows="5"></textarea>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-4 rounded-full font-bold text-lg shadow-lg hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Send Message
+                        </button>
+<p class="text-center text-xs text-outline pt-2">Typical response time: Under 2 hours during business hours.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shell -->
+<footer class="w-full py-12 px-8 mt-20 bg-slate-50 border-t border-slate-200/50">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-screen-2xl mx-auto">
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 mb-4 font-headline flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                    SmartBook AI Store
+                </div>
+<p class="text-sm text-slate-500 max-w-xs leading-relaxed">
+                    © 2024 SmartBook AI Store. Curating intelligence for readers. Our goal is to connect you with the literature that transforms your thinking.
+                </p>
+</div>
+<div>
+<h5 class="font-headline font-bold text-slate-900 mb-4">Quick Links</h5>
+<ul class="space-y-3 text-sm text-slate-500 font-body">
+<li><a class="hover:underline hover:text-indigo-600 decoration-indigo-500 underline-offset-4" href="#">About</a></li>
+<li><a class="hover:underline hover:text-indigo-600 decoration-indigo-500 underline-offset-4" href="#">Categories</a></li>
+<li><a class="hover:underline hover:text-indigo-600 decoration-indigo-500 underline-offset-4" href="#">Support</a></li>
+<li><a class="hover:underline hover:text-indigo-600 decoration-indigo-500 underline-offset-4" href="#">Contact</a></li>
+<li><a class="hover:underline hover:text-indigo-600 decoration-indigo-500 underline-offset-4" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-headline font-bold text-slate-900 mb-4">Newsletter</h5>
+<div class="relative max-w-xs">
+<input class="w-full bg-white border border-slate-200 rounded-full py-2 px-4 text-xs focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="your@email.com" type="text"/>
+<button class="absolute right-1 top-1 bg-primary text-white p-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<p class="text-[10px] text-slate-400 mt-2">Get AI-curated reading lists weekly.</p>
+</div>
+<div class="flex flex-col items-end gap-4">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">share</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">language</span>
+<span class="material-symbols-outlined text-slate-400 cursor-pointer hover:text-primary">rss_feed</span>
+</div>
+<div class="bg-indigo-50 p-3 rounded-xl">
+<p class="text-[10px] text-indigo-600 font-bold uppercase tracking-widest text-right">AI Status</p>
+<p class="text-[10px] text-indigo-400 text-right">Online &amp; Learning</p>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

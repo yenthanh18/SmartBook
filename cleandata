@@ -1,0 +1,361 @@
+import pandas as pd
+import numpy as np
+import re
+
+# =========================
+# 1. LOAD DATA
+# =========================
+INPUT_FILE = "books.csv"
+OUTPUT_FILE = "smartbook_catalog.csv"
+
+df = pd.read_csv(INPUT_FILE)
+
+# =========================
+# 2. SELECT + RENAME COLUMNS
+# =========================
+expected_cols = [
+    "isbn13",
+    "isbn10",
+    "title",
+    "subtitle",
+    "authors",
+    "categories",
+    "thumbnail",
+    "description",
+    "published_year",
+    "average_rating",
+    "num_pages",
+    "ratings_count",
+]
+
+missing_cols = [c for c in expected_cols if c not in df.columns]
+if missing_cols:
+    raise ValueError(f"Thiếu các cột sau trong books.csv: {missing_cols}")
+
+df = df[expected_cols].copy()
+
+df = df.rename(
+    columns={
+        "categories": "raw_category",
+        "thumbnail": "image_url",
+        "num_pages": "page_count",
+    }
+)
+
+# =========================
+# 3. CLEAN BASIC TEXT
+# =========================
+text_cols = [
+    "isbn13",
+    "isbn10",
+    "title",
+    "subtitle",
+    "authors",
+    "raw_category",
+    "image_url",
+    "description",
+]
+
+for col in text_cols:
+    df[col] = df[col].fillna("").astype(str).str.strip()
+
+# Chuẩn hóa khoảng trắng
+for col in ["title", "subtitle", "authors", "raw_category", "description"]:
+    df[col] = df[col].str.replace(r"\s+", " ", regex=True).str.strip()
+
+# =========================
+# 4. CLEAN NUMERIC COLUMNS
+# =========================
+numeric_cols = ["published_year", "average_rating", "page_count", "ratings_count"]
+for col in numeric_cols:
+    df[col] = pd.to_numeric(df[col], errors="coerce")
+
+# =========================
+# 5. DROP BAD / EMPTY RECORDS
+# =========================
+df = df[
+    (df["title"] != "")
+    & (df["authors"] != "")
+    & (df["raw_category"] != "")
+    & (df["description"] != "")
+    & (df["image_url"] != "")
+]
+
+# Description quá ngắn thường không hữu ích cho AI / product page
+df = df[df["description"].str.len() >= 20]
+
+# Published year hợp lý
+df = df[(df["published_year"].isna()) | ((df["published_year"] >= 1800) & (df["published_year"] <= 2026))]
+
+# Rating hợp lý
+df = df[(df["average_rating"].isna()) | ((df["average_rating"] >= 0) & (df["average_rating"] <= 5))]
+
+# Page count hợp lý
+df = df[(df["page_count"].isna()) | (df["page_count"] > 0)]
+
+# Ratings count không âm
+df = df[(df["ratings_count"].isna()) | (df["ratings_count"] >= 0)]
+
+# =========================
+# 6. REMOVE DUPLICATES
+# =========================
+# Ưu tiên isbn13 nếu có, sau đó title + authors
+df["isbn13_clean"] = df["isbn13"].str.replace(r"\.0$", "", regex=True).str.strip()
+df["isbn10_clean"] = df["isbn10"].str.replace(r"\.0$", "", regex=True).str.strip()
+
+# Tách dữ liệu có ISBN13 và không có ISBN13
+has_isbn13 = df["isbn13_clean"] != ""
+df1 = df[has_isbn13].drop_duplicates(subset=["isbn13_clean"], keep="first")
+df2 = df[~has_isbn13].drop_duplicates(subset=["title", "authors"], keep="first")
+
+df = pd.concat([df1, df2], ignore_index=True)
+df = df.drop_duplicates(subset=["title", "authors"], keep="first").reset_index(drop=True)
+
+# =========================
+# 7. FILL MISSING NUMERICS
+# =========================
+if df["published_year"].notna().any():
+    df["published_year"] = df["published_year"].fillna(int(df["published_year"].median()))
+else:
+    df["published_year"] = 2015
+
+if df["average_rating"].notna().any():
+    df["average_rating"] = df["average_rating"].fillna(round(df["average_rating"].median(), 2))
+else:
+    df["average_rating"] = 4.0
+
+if df["page_count"].notna().any():
+    df["page_count"] = df["page_count"].fillna(int(df["page_count"].median()))
+else:
+    df["page_count"] = 250
+
+df["ratings_count"] = df["ratings_count"].fillna(0)
+
+# Subtitle rỗng thì điền mặc định
+df["subtitle"] = df["subtitle"].replace("", "Not available")
+
+# =========================
+# 8. CATEGORY NORMALIZATION
+# =========================
+def normalize_text(s: str) -> str:
+    s = str(s).lower().strip()
+    s = s.replace("&", " and ")
+    s = re.sub(r"[^\w\s\-&,.:/]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+def map_category(raw_cat: str) -> str:
+    c = normalize_text(raw_cat)
+
+    # 1) Children / YA
+    if any(x in c for x in [
+        "juvenile fiction", "juvenile nonfiction", "young adult",
+        "children", "children's", "childrens", "boys", "girls",
+        "teenagers", "friendship in adolescence", "high schools",
+        "boarding school-fiction", "bedtime", "babytime"
+    ]):
+        return "Children & Young Adult"
+
+    # 2) Mystery / Thriller
+    if any(x in c for x in [
+        "detective", "mystery", "crime", "true crime", "thriller",
+        "murder", "crime investigation", "crime investigations",
+        "criminal", "organized crime", "espionage", "intelligence service",
+        "conspiracies", "bombings", "assassins", "defectors",
+        "poirot", "marple", "battle, superintendent", "tommy",
+        "hannibal", "jack ryan", "james bond", "eve dallas",
+        "87th precinct", "continental op"
+    ]):
+        return "Mystery & Thriller"
+
+    # 3) Fantasy / Science Fiction
+    if any(x in c for x in [
+        "fantasy", "fantasy fiction", "science fiction", "sci-fi",
+        "fairy tales", "magic", "dragons", "elves", "mythology",
+        "arthurian", "imaginary", "life on other planets",
+        "interplanetary", "human cloning", "dystop", "star trek",
+        "frodo", "bilbo", "discworld", "otherland", "conan",
+        "alanna", "beowulf", "chrestomanci", "mars"
+    ]):
+        return "Fantasy & Science Fiction"
+
+    # 4) Horror / Supernatural
+    if any(x in c for x in [
+        "horror", "horror tales", "horror stories", "ghost",
+        "ghost stories", "vampire", "vampires", "occult",
+        "occult fiction", "demonology", "exorcism", "witchcraft",
+        "dracula", "dead", "sea monsters", "supernatural"
+    ]):
+        return "Horror & Supernatural"
+
+    # 5) Romance
+    if any(x in c for x in [
+        "romance", "love", "courtship", "dating", "seduction",
+        "first loves", "man-woman relationships", "married people",
+        "divorced women", "divorced people", "female friendship",
+        "chick lit", "adultery"
+    ]):
+        return "Romance"
+
+    # 6) Historical / War
+    if any(x in c for x in [
+        "historical fiction", "history", "history, modern", "war",
+        "world war", "black death", "crusades", "napoleonic wars",
+        "persian gulf war", "holocaust", "auschwitz", "tobruk",
+        "apartheid", "antislavery", "slave insurrections",
+        "vietnam war"
+    ]):
+        return "Historical & War"
+
+    # 7) Business / Self-Help
+    if any(x in c for x in [
+        "business", "economics", "finance", "personal finance",
+        "leadership", "selling", "consumer behavior", "self-help",
+        "conduct of life", "confidence", "motivation", "success",
+        "advertising", "businesswomen", "business women", "businessmen"
+    ]):
+        return "Business & Self-Help"
+
+    # 8) Technology / Science
+    if any(x in c for x in [
+        "computer", "computers", "program", "technology", "engineering",
+        "physics", "mathematics", "mathematicians", "cosmology",
+        "electrons", "science", "zoology", "aeronautics", "arithmetic",
+        "c (computer program language)"
+    ]):
+        return "Technology & Science"
+
+    # 9) Psychology / Social Sciences
+    if any(x in c for x in [
+        "psychology", "social science", "human behavior", "behavior",
+        "identity", "alienation", "adjustment", "mental illness",
+        "emotion", "emotional problems", "friendship", "family",
+        "families", "parenthood", "bereavement", "death", "anger",
+        "repression", "autonomy", "adolescence"
+    ]):
+        return "Psychology & Social Sciences"
+
+    # 10) Religion / Spirituality
+    if any(x in c for x in [
+        "religion", "christian", "christianity", "god", "bible", "bibles",
+        "buddhism", "confucianism", "mysticism", "spiritual", "meditation",
+        "theology", "saints", "catholics", "amish", "mormon"
+    ]):
+        return "Religion & Spirituality"
+
+    # 11) Comics / Humor / Arts
+    if any(x in c for x in [
+        "comics", "graphic novels", "graphic novel", "comic books",
+        "humor", "humour", "wit and humor", "wit and humour",
+        "art", "music", "performing arts", "photography", "design",
+        "motion pictures", "feature films", "television", "ballet",
+        "actors", "actresses", "rock musicians"
+    ]):
+        return "Comics, Humor & Arts"
+
+    # 12) Fiction (fallback)
+    return "Fiction"
+
+df["category"] = df["raw_category"].apply(map_category)
+
+# =========================
+# 9. ECOMMERCE ENRICHMENT
+# =========================
+df = df.reset_index(drop=True)
+df["product_id"] = df.index + 1
+df["sku"] = df["product_id"].apply(lambda x: f"SB-{x:06d}")
+
+# Giá: logic theo độ dày + rating + popularity nhẹ
+base_price = (
+    6.99
+    + (df["page_count"] / 100) * 1.15
+    + (df["average_rating"] - 3.5) * 1.4
+    + np.log1p(df["ratings_count"]) * 0.15
+)
+
+df["price"] = base_price.clip(lower=5.99, upper=29.99).round(2)
+
+# Discount: phân phối hợp lý
+np.random.seed(42)
+discount_choices = [0, 0, 0, 0, 10, 10, 15, 20, 25]
+df["discount_percent"] = np.random.choice(discount_choices, size=len(df))
+
+df["final_price"] = (df["price"] * (1 - df["discount_percent"] / 100)).round(2)
+df["currency"] = "USD"
+
+# Inventory
+df["stock_quantity"] = np.random.randint(0, 31, size=len(df))
+
+def stock_status(qty: int) -> str:
+    if qty == 0:
+        return "out_of_stock"
+    elif qty < 5:
+        return "low_stock"
+    return "in_stock"
+
+df["availability_status"] = df["stock_quantity"].apply(stock_status)
+
+# Bestseller: top 15% theo ratings_count
+bestseller_threshold = df["ratings_count"].quantile(0.85)
+df["is_bestseller"] = (df["ratings_count"] >= bestseller_threshold).astype(int)
+
+# Featured: top score theo rating + popularity
+feature_score = df["average_rating"] * np.log1p(df["ratings_count"] + 1)
+featured_threshold = feature_score.quantile(0.90)
+df["is_featured"] = (feature_score >= featured_threshold).astype(int)
+
+# =========================
+# 10. OPTIONAL AI TEXT FIELD
+# =========================
+# Cột này rất hữu ích để sau này build recommendation
+df["ai_text"] = (
+    df["title"].fillna("") + " "
+    + df["subtitle"].fillna("") + " "
+    + df["authors"].fillna("") + " "
+    + df["category"].fillna("") + " "
+    + df["description"].fillna("")
+).str.replace(r"\s+", " ", regex=True).str.strip()
+
+# =========================
+# 11. FINAL COLUMN ORDER
+# =========================
+final_cols = [
+    "product_id",
+    "sku",
+    "isbn13",
+    "isbn10",
+    "title",
+    "subtitle",
+    "authors",
+    "category",
+    "raw_category",
+    "description",
+    "image_url",
+    "published_year",
+    "average_rating",
+    "page_count",
+    "ratings_count",
+    "price",
+    "discount_percent",
+    "final_price",
+    "currency",
+    "stock_quantity",
+    "availability_status",
+    "is_bestseller",
+    "is_featured",
+    "ai_text",
+]
+
+df = df[final_cols]
+
+# =========================
+# 12. SAVE
+# =========================
+df.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
+
+print("✅ DONE: saved", OUTPUT_FILE)
+print("Shape:", df.shape)
+print("\nCategory distribution:")
+print(df["category"].value_counts())
+print("\nSample rows:")
+print(df.head(5))

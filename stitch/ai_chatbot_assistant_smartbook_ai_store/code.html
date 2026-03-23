@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SmartBook AI Store - Assistant</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-primary": "#8582ff",
+                        "secondary": "#515c70",
+                        "error-container": "#f74b6d",
+                        "on-secondary": "#eff2ff",
+                        "surface-container-highest": "#d9dde0",
+                        "surface-tint": "#4a40e0",
+                        "error": "#b41340",
+                        "surface-variant": "#d9dde0",
+                        "surface-container": "#e5e9eb",
+                        "on-secondary-container": "#475266",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#9795ff",
+                        "on-primary-container": "#14007e",
+                        "inverse-on-surface": "#9a9d9f",
+                        "inverse-surface": "#0b0f10",
+                        "tertiary-fixed-dim": "#c488ff",
+                        "on-tertiary-fixed": "#270048",
+                        "on-tertiary-fixed-variant": "#560094",
+                        "primary-container": "#9795ff",
+                        "background": "#f5f7f9",
+                        "outline-variant": "#abadaf",
+                        "on-secondary-fixed": "#354053",
+                        "secondary-container": "#d8e3fb",
+                        "on-primary": "#f4f1ff",
+                        "surface-container-low": "#eef1f3",
+                        "tertiary-dim": "#740ec2",
+                        "on-error": "#ffefef",
+                        "outline": "#747779",
+                        "on-surface-variant": "#595c5e",
+                        "surface": "#f5f7f9",
+                        "error-dim": "#a70138",
+                        "primary-dim": "#3d30d4",
+                        "surface-bright": "#f5f7f9",
+                        "secondary-dim": "#455064",
+                        "surface-container-high": "#dfe3e6",
+                        "on-error-container": "#510017",
+                        "primary-fixed-dim": "#8885ff",
+                        "tertiary-container": "#ce9bff",
+                        "secondary-fixed": "#d8e3fb",
+                        "secondary-fixed-dim": "#cad5ed",
+                        "on-background": "#2c2f31",
+                        "tertiary": "#8126cf",
+                        "tertiary-fixed": "#ce9bff",
+                        "on-tertiary-container": "#4a0080",
+                        "on-surface": "#2c2f31",
+                        "on-tertiary": "#fbefff",
+                        "on-primary-fixed-variant": "#1a0099",
+                        "primary": "#4a40e0",
+                        "on-secondary-fixed-variant": "#515c70"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+<!-- Top Navigation (Shell) -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 dark:text-slate-50 flex items-center gap-2 font-headline">
+<span class="material-symbols-outlined text-primary" data-icon="auto_stories">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8 font-headline font-semibold tracking-tight">
+<a class="text-indigo-600 dark:text-indigo-400 border-b-2 border-indigo-600 pb-1" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Shop</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Bestsellers</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">Deals</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-indigo-500 transition-colors" href="#">AI Picks</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90" data-icon="favorite">favorite</button>
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90" data-icon="shopping_cart">shopping_cart</button>
+<button class="material-symbols-outlined text-slate-600 hover:opacity-80 transition-all duration-300 scale-95 active:scale-90" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="pt-32 pb-20 px-8 max-w-screen-2xl mx-auto min-h-screen">
+<div class="grid grid-cols-12 gap-8">
+<!-- Hero Bento -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-lg p-10 flex flex-col justify-center relative overflow-hidden h-[500px]">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+<img class="w-full h-full object-cover" data-alt="Abstract bookshelf in high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb9jFWIDr2cVBq2aUXu-MURcUkFsqSIfCAqYz-tcIK9KifKL_GO6HpXzt2UtUWDbrPdTsoY2m2ipLMUedEab82G723eEjFZovlxk5ypdnfp2NC42vVn9Ckztf_6LTmyoHUhTv4kY3FHywPepYOOkrfCDsbFtk6QMAX1GpIxRI4l2OBknOdW9P4r0mJLBiqbUHlIqN0ygGaxTdjsv6Q97e_Y6zdLL-91Tb-8fZkxvZzIzj3ikdRgATrmAnxqygXXGPuUR3Hn_2cVrY"/>
+</div>
+<div class="relative z-10 space-y-6">
+<span class="px-4 py-2 bg-tertiary/10 text-tertiary font-bold text-xs tracking-widest uppercase rounded-full">New Arrival</span>
+<h1 class="text-6xl font-headline font-extrabold tracking-tighter leading-none text-on-surface">Curated by AI.<br/><span class="text-primary">Read by You.</span></h1>
+<p class="text-xl text-on-surface-variant max-w-md font-body">Our intelligence finds the books you didn't know you were looking for. Personalized editorial picks updated daily.</p>
+<button class="px-8 py-4 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-bold shadow-lg shadow-primary/20 hover:scale-105 transition-transform">Explore The Library</button>
+</div>
+</div>
+<!-- Side Bento -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-lg p-8 flex flex-col justify-between h-[500px]">
+<div>
+<h3 class="text-2xl font-headline font-bold text-on-surface mb-4">Trending Now</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-md shadow-sm">
+<div class="w-12 h-16 bg-surface-container rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Book cover for trend 1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVmBFkRKB5r3mnSugszUHxzqgl6o7A6gFyEKYGsJxiuJeJFWxxGZcPl6SQmD5pWTa9Rneb567w5uu-mEJJBDUFZbQhxhO2LBpb1uou1a8MVhcrVSWELG_6qdWV9kXd2Drh1sabtSRRrLDw9Jx6lEvX99DthxKQgw19JHeaINv7Vg9cjIH8oxLzInbzsiKTladGBaRQtmKQnwR9u8B0KrDybPuYyVdszYCGoSu2mwc0loiH1MjmIVfeZXS9X9jrhsLYXwDS-f_7Iuk"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">The Alchemist</p>
+<p class="text-sm text-on-surface-variant">Paulo Coelho</p>
+</div>
+</div>
+<div class="flex items-center gap-4 bg-surface-container-lowest p-4 rounded-md shadow-sm">
+<div class="w-12 h-16 bg-surface-container rounded overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Book cover for trend 2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG4ju6oVIUQR7LM0B6c5SkvzkqZaTKXPQUQIfhvRly3vyq1RL_lf5x9UZ867JYdlIOfSVGRda9eHOoQWiD49NVoPSRhGEIEhbggyz74-PRpgGZW1b3eTE8o2m6Yi67j13wpeluWRlVq-YJEVcQZ7YnLcm88QzCZOdTCJ6Fc3myLHgxx7Aw8_9uSwSDYEIEdes5Xd1yHb7cvIBBB0468kffklJvceI5N0gtGghis-i83QURRyltrS1U44qC2vJoMkQJMMSro5m7TAU"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Atomic Habits</p>
+<p class="text-sm text-on-surface-variant">James Clear</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-6 rounded-md">
+<p class="font-headline font-bold text-lg">Weekly Deal</p>
+<p class="text-sm opacity-80 mb-4">Get 20% off all AI-recommended Sci-Fi titles this week.</p>
+<button class="w-full py-2 bg-white text-primary rounded-full font-bold text-sm">Claim Discount</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Chatbot Assistant Components -->
+<!-- Open State Panel -->
+<div class="fixed bottom-24 right-8 w-[400px] h-[600px] bg-surface-container-lowest rounded-[20px] shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.15)] flex flex-col z-[100] border border-outline-variant/10" id="chatbot-panel">
+<!-- Header -->
+<header class="glass-header p-6 rounded-t-[20px] flex items-center justify-between border-b border-outline-variant/5">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-gradient-to-tr from-primary to-tertiary flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h2 class="font-headline font-bold text-on-surface text-lg">SmartBook AI Assistant</h2>
+<p class="text-xs text-on-surface-variant">Ask for books by genre, budget, or similar titles</p>
+</div>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-error transition-colors" data-icon="close">close</button>
+</header>
+<!-- Message List -->
+<div class="flex-1 overflow-y-auto p-6 space-y-6 no-scrollbar">
+<!-- AI Welcome -->
+<div class="flex gap-3 max-w-[85%]">
+<div class="w-8 h-8 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary text-xs font-bold">AI</div>
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed">
+                    Hello! I'm your digital curator. Need help finding your next great read? Tell me what you're into!
+                </div>
+</div>
+<!-- User Message -->
+<div class="flex justify-end">
+<div class="max-w-[85%] bg-primary text-on-primary p-4 rounded-2xl rounded-tr-none text-sm shadow-md">
+                    I'm looking for some non-fiction productivity books under $20.
+                </div>
+</div>
+<!-- AI Response + Recommendations -->
+<div class="flex gap-3 max-w-full">
+<div class="w-8 h-8 shrink-0 rounded-full bg-surface-container-high flex items-center justify-center text-primary text-xs font-bold">AI</div>
+<div class="space-y-4 flex-1">
+<div class="bg-surface-container-low p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed max-w-[85%]">
+                        Great choice. Here are the top-rated productivity titles that fit your budget:
+                    </div>
+<!-- Recommendation Mini Cards -->
+<div class="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
+<!-- Card 1 -->
+<div class="min-w-[180px] bg-white rounded-xl p-3 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow cursor-pointer" onclick="{{DATA:ANALYTICS:chatbot_recommendation_click}}">
+<div class="h-32 bg-surface-container-low rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Productivity book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWM39Jnm8kg-tRKSDqK5FoV4rKdkXJuU7-T9BKloNgBHt5Jd970-XihxBN8Nys3KAljQ6K1aW-LPXuoQ5F9tfCRBd2jluQoYbQU_KKEXuJiJxiMmxTc_YHfEK__IxdOzT8-Va7rff8Kk0BOCNVIAOwfe8jGpzA2OK1YoaI0wJVpc_JSPybPkpddwPUYje8VMPoQeTZ0CH2cmvE-m_lE-WelMQx53RU0PK3D517bplRa9LjJhU8jg0PwY3NK0HvnzRpG6ApxZk9atQ"/>
+</div>
+<h4 class="font-bold text-xs truncate">Deep Work</h4>
+<p class="text-[10px] text-on-surface-variant mb-2">Cal Newport</p>
+<div class="flex items-center justify-between">
+<span class="font-bold text-primary text-xs">$14.99</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px] text-tertiary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-medium">4.8</span>
+</div>
+</div>
+<button class="w-full mt-3 py-2 bg-surface-container-high hover:bg-primary hover:text-white transition-colors text-[10px] font-bold rounded-full">Add to Cart</button>
+</div>
+<!-- Card 2 -->
+<div class="min-w-[180px] bg-white rounded-xl p-3 shadow-sm border border-outline-variant/10 hover:shadow-md transition-shadow cursor-pointer" onclick="{{DATA:ANALYTICS:chatbot_recommendation_click}}">
+<div class="h-32 bg-surface-container-low rounded-lg mb-3 overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Management book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBL_Jjn9LgCGNmrcalf0Gkv7wA6CEIbRgH7RrNbsv_G8fddba2Esp2Q1k-QavbFvD8yC295wLF1SwYbK5FbK3pjYBBBk3IX8w6xN75-kTGRvWLx0k0OlUmE2xfc_SPDhy6yvZQCu3a_4Jo3_G_H0qgDTr23l5o0aUqQb-OhDF84O2RzJFu9_64cFGFuGXk_QAETLGe53Ox3F6pkYpI32it45rOO3rMkc5kAiOUavzme5sdaPEaBlPef9oyqR3QZvRD9OI7dO4zWZXY"/>
+</div>
+<h4 class="font-bold text-xs truncate">Essentialism</h4>
+<p class="text-[10px] text-on-surface-variant mb-2">Greg McKeown</p>
+<div class="flex items-center justify-between">
+<span class="font-bold text-primary text-xs">$16.50</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px] text-tertiary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] font-medium">4.7</span>
+</div>
+</div>
+<button class="w-full mt-3 py-2 bg-surface-container-high hover:bg-primary hover:text-white transition-colors text-[10px] font-bold rounded-full">Add to Cart</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Suggestion Chips & Input -->
+<footer class="p-6 space-y-4">
+<div class="flex flex-wrap gap-2">
+<button class="px-3 py-1.5 bg-surface-container-high text-[11px] font-semibold rounded-full hover:bg-tertiary hover:text-white transition-colors">Fantasy books under $15</button>
+<button class="px-3 py-1.5 bg-surface-container-high text-[11px] font-semibold rounded-full hover:bg-tertiary hover:text-white transition-colors">Books like Atomic Habits</button>
+<button class="px-3 py-1.5 bg-surface-container-high text-[11px] font-semibold rounded-full hover:bg-tertiary hover:text-white transition-colors">Sci-Fi bestsellers</button>
+</div>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-none rounded-2xl py-4 pl-6 pr-14 text-sm focus:ring-2 focus:ring-primary-container focus:bg-surface-container-lowest transition-all" placeholder="Type your book request..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-xl bg-primary text-on-primary flex items-center justify-center shadow-lg shadow-primary/20" onclick="{{DATA:ANALYTICS:send_chat_message}}">
+<span class="material-symbols-outlined text-lg" data-icon="send">send</span>
+</button>
+</div>
+</footer>
+</div>
+<!-- Closed State Floating Button -->
+<div class="fixed bottom-8 right-8 z-[110] flex flex-col items-end gap-3">
+<!-- Tooltip -->
+<div class="bg-on-surface text-surface-container-lowest px-4 py-2 rounded-xl text-sm font-medium shadow-xl relative animate-bounce">
+            Need help choosing a book?
+            <div class="absolute -bottom-1 right-6 w-3 h-3 bg-on-surface rotate-45"></div>
+</div>
+<!-- FAB -->
+<button class="w-16 h-16 rounded-full bg-gradient-to-tr from-primary to-tertiary text-white flex items-center justify-center shadow-[0px_16px_32px_-8px_rgba(74,64,224,0.4)] hover:scale-110 active:scale-90 transition-all" onclick="{{DATA:ANALYTICS:open_chatbot}}">
+<div class="relative">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_stories">auto_stories</span>
+<span class="absolute -top-1 -right-1 material-symbols-outlined text-lg animate-pulse" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+</button>
+</div>
+<!-- Footer Shell -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 mt-20">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-screen-2xl mx-auto border-t border-slate-200/50 dark:border-slate-800/50 pt-12">
+<div class="col-span-2">
+<div class="text-xl font-bold text-slate-900 dark:text-slate-100 font-headline mb-4">SmartBook AI Store</div>
+<p class="font-body text-sm text-slate-500 dark:text-slate-400 mb-6 max-w-xs">Using artificial intelligence to connect readers with stories that matter. The future of curation is here.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-indigo-600 cursor-pointer hover:opacity-80 transition-opacity" data-icon="rss_feed">rss_feed</span>
+<span class="material-symbols-outlined text-indigo-600 cursor-pointer hover:opacity-80 transition-opacity" data-icon="share">share</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm text-slate-900 mb-4">Explore</h4>
+<ul class="space-y-3 font-body text-sm text-slate-500">
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">About</a></li>
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Categories</a></li>
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Bestsellers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm text-slate-900 mb-4">Support</h4>
+<ul class="space-y-3 font-body text-sm text-slate-500">
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Contact</a></li>
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Shipping</a></li>
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Returns</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline font-bold text-sm text-slate-900 mb-4">Legal</h4>
+<ul class="space-y-3 font-body text-sm text-slate-500">
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Privacy Policy</a></li>
+<li><a class="hover:underline decoration-indigo-500 underline-offset-4 hover:text-indigo-500" href="#">Terms of Use</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-12 pt-8 border-t border-slate-200/30 text-center">
+<p class="font-body text-sm text-slate-500 dark:text-slate-400">© 2024 SmartBook AI Store. Curating intelligence for readers.</p>
+</div>
+</footer>
+</body></html>

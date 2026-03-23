@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shop | SmartBook AI Store</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-primary": "#8582ff",
+              "secondary": "#515c70",
+              "error-container": "#f74b6d",
+              "on-secondary": "#eff2ff",
+              "surface-container-highest": "#d9dde0",
+              "surface-tint": "#4a40e0",
+              "error": "#b41340",
+              "surface-variant": "#d9dde0",
+              "surface-container": "#e5e9eb",
+              "on-secondary-container": "#475266",
+              "on-primary-fixed": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "primary-fixed": "#9795ff",
+              "on-primary-container": "#14007e",
+              "inverse-on-surface": "#9a9d9f",
+              "inverse-surface": "#0b0f10",
+              "tertiary-fixed-dim": "#c488ff",
+              "on-tertiary-fixed": "#270048",
+              "on-tertiary-fixed-variant": "#560094",
+              "primary-container": "#9795ff",
+              "background": "#f5f7f9",
+              "outline-variant": "#abadaf",
+              "on-secondary-fixed": "#354053",
+              "secondary-container": "#d8e3fb",
+              "on-primary": "#f4f1ff",
+              "surface-container-low": "#eef1f3",
+              "tertiary-dim": "#740ec2",
+              "on-error": "#ffefef",
+              "outline": "#747779",
+              "on-surface-variant": "#595c5e",
+              "surface": "#f5f7f9",
+              "error-dim": "#a70138",
+              "primary-dim": "#3d30d4",
+              "surface-bright": "#f5f7f9",
+              "secondary-dim": "#455064",
+              "surface-container-high": "#dfe3e6",
+              "on-error-container": "#510017",
+              "primary-fixed-dim": "#8885ff",
+              "tertiary-container": "#ce9bff",
+              "secondary-fixed": "#d8e3fb",
+              "secondary-fixed-dim": "#cad5ed",
+              "on-background": "#2c2f31",
+              "tertiary": "#8126cf",
+              "tertiary-fixed": "#ce9bff",
+              "on-tertiary-container": "#4a0080",
+              "on-surface": "#2c2f31",
+              "on-tertiary": "#fbefff",
+              "on-primary-fixed-variant": "#1a0099",
+              "primary": "#4a40e0",
+              "on-secondary-fixed-variant": "#515c70"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #f5f7f9;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 flex items-center gap-2 font-['Plus_Jakarta_Sans']">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+                SmartBook AI Store
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Plus_Jakarta_Sans'] font-semibold tracking-tight">
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Home</a>
+<a class="text-indigo-600 border-b-2 border-indigo-600 pb-1" href="#">Shop</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Bestsellers</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Deals</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">AI Picks</a>
+<a class="text-slate-600 hover:text-indigo-500 transition-colors" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">favorite</span>
+</button>
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 transition-transform relative">
+<span class="material-symbols-outlined text-on-surface-variant">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">3</span>
+</button>
+<button class="hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined text-on-surface-variant">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-8 max-w-screen-2xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-72 flex-shrink-0 space-y-10">
+<!-- Categories -->
+<div>
+<h3 class="text-lg font-bold mb-6 text-on-surface">Category</h3>
+<div class="space-y-3">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">All Categories</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Artificial Intelligence</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Data Science</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Fiction &amp; Sci-Fi</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary/20" type="checkbox"/>
+<span class="text-on-surface-variant group-hover:text-primary transition-colors">Business &amp; Tech</span>
+</label>
+</div>
+</div>
+<!-- Price Range -->
+<div>
+<h3 class="text-lg font-bold mb-6 text-on-surface">Price range</h3>
+<div class="px-2">
+<input class="w-full h-1.5 bg-surface-container rounded-lg appearance-none cursor-pointer accent-primary" max="200" min="0" type="range" value="120"/>
+<div class="flex justify-between mt-4 text-sm font-medium text-on-surface-variant">
+<span>$0</span>
+<span>$200+</span>
+</div>
+</div>
+</div>
+<!-- Rating -->
+<div>
+<h3 class="text-lg font-bold mb-6 text-on-surface">Rating</h3>
+<div class="space-y-3">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<div class="flex text-amber-400">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]">star</span>
+</div>
+<span class="text-sm font-medium">&amp; Up</span>
+</button>
+</div>
+</div>
+<!-- Status Toggles -->
+<div class="space-y-6 pt-4">
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">In Stock</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">Bestseller</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-bold text-on-surface">On Sale</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</aside>
+<!-- Main Product Area -->
+<div class="flex-1">
+<!-- Toolbar -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+<p class="text-on-surface-variant font-medium">Showing <span class="text-on-surface font-bold">24</span> of 1,200 books</p>
+<div class="flex items-center gap-4">
+<span class="text-sm font-bold uppercase tracking-wider text-outline">Sort By</span>
+<select class="bg-surface-container-lowest border-none rounded-lg px-6 py-2.5 shadow-sm focus:ring-2 focus:ring-primary/20 font-semibold text-on-surface min-w-[180px]">
+<option>Trending</option>
+<option>Newest Arrivals</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Highest Rated</option>
+</select>
+</div>
+</div>
+<!-- Product Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+<!-- Card 1 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Minimalist book cover design showing abstract waves" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHgtJm62fWf6IfLJuzBDBHRLIUSH3Ba5aV2ZdI67gytY3Yql7ilUKZ2RPvRqQu3prJ7wa_RliKF0twBm80WYD84BmEQuBMW0GcwbaCOTI33sisj0isKSnuaGelFJVz8xC6qZF7o8uiNUEJy4B4KEHpuPdwgHiPuGEBoekD7-2ivspT-lKq-8u8Q7wKLGY1bCxtGtEJTw-J3IWlaiW8B48wot9tXwxz3r3O1aBRkpL6hqO0w9UDAo3brHYjUtouCT5DhV97OyuSMSE"/>
+<div class="absolute top-3 left-3 bg-tertiary text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest shadow-lg">AI Choice</div>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Neural Science</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">The Architect of Thought</h4>
+<p class="text-sm text-on-surface-variant mb-3">Dr. Elias Thorne</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(48)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$42.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Classic hardcover book with golden typography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv5C1nHs-DQvkZLqSlHDstI0vEBA3W5178s_23EK_gsipoGTlpOWmYCTw1sKYDaYMuydkhFgIUvuarrIROvv7iMgqhGJqtinGxLEFxNCtX-0B3uEG8xCF9agUMgVCoCK2iUcgA-VGCQ9UkWhuobdDGNIPlhNHFNEusajkZrnR8pMkY5xKATzq4YM-xPCMHP_DBgNiMCxWBCrYf5nEFNzhkTnDEU9Auw6Y_lQvjH2DejmlMkl9okM5VobDO2dGYFGW8vkfyLOGjyzs"/>
+<div class="absolute top-3 right-3 bg-error-container text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-widest shadow-lg">15% Off</div>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Modern Ethics</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Digital Consciousness</h4>
+<p class="text-sm text-on-surface-variant mb-3">Sarah J. Miller</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(124)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<div class="flex flex-col">
+<span class="text-xl font-black text-on-surface">$29.99</span>
+<span class="text-xs text-outline line-through">$34.99</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Blue and purple abstract book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt5mTeoVCdxr4oCn3zF23JaxQ82oyoJSP3jl7AEek2ufOWe9HWeelPIajzaZ9TOv_XoUc_hFuNLh0lZ1SZi_uMrApVG-nDQsMZ8zfhU65xMxjSA_SRlYafmNwrhoe_Gi9SzhkxQp75sWdT4qgbiL4iWp2H835YDtWbjLhSgdmcHXkHTEk1qTlFupyqIz4xs4W5kkeYWfJdZWbZPAdr983wxVC7umbs_4mdnQ-hzXIuNurjuRnFGTbfXUP3gv0odCh99XmwG0vnGKY"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Futurism</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Post-Human Era</h4>
+<p class="text-sm text-on-surface-variant mb-3">Kaito Nakamura</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(21)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$38.50</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark aesthetic book cover with white geometric lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl-Xk0pPcFxZYke8_xw1rCkhwH--cIUcwVbXxrQLW9J0Ugayq-xHWmSnc8MvkfmasLgSQyJ5xQl3jZKMdg2Ic_Oj8PIRsY0uxe-AZMrZ0f39OHHLbEmuOvMZztuaCgwenpKRZjtOdRtLPLOikzKy4NDlFrR2rSWYqpFGX20Hb7z64176p4N-MFALBwihqLzfY-21eDS3MpHxQlQ1SB-X2iI0C6kcQpVrQVkMY7Wrxxf8E5Bvgfrxmlns7O7mo71A90qRwb13GTKiE"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Computing</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Binary Garden</h4>
+<p class="text-sm text-on-surface-variant mb-3">Elena Rossi</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(89)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$55.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Repeated Cards for Grid Filling -->
+<!-- Card 5 (Repeated Style) -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Stack of bright colorful books" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGWccTRE7tKVBiVuQWUrlfCbiZT0dtKPF4-HDOablFRvssiFECl2a3WjvF9r3KY0cWPX_nBk33s7VwQIx4P_g9ZDUQxsj_LEEogjIFwVEvhpE6ZG-TTesJccTURwOwO_H7K0kis6j0HE3oJJqizN3iZR-hsPIGK1QKUOykdSQAVW-2UJQIAGYq3AomcDollG52gjNwEOix2Uwipgv7vEpLZmLwRAXYrA1ofZjoosK3i8SCqQfsEWAGza_R1a2CGgSXhHpiuL34Yfk"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Education</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Infinite Learning</h4>
+<p class="text-sm text-on-surface-variant mb-3">Marcus Wells</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(5)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$19.95</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Illustration on a book cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFwh3ukHoPB3MySygOnWRLooMBaFG31q3RgQncU0gSkzmhAUqMKtllevkQyQa0ec3kc84kElBImxs5q0mIGltg2De8SWhpYxgUbq0FTa7TL5XWh79UpAC8H44r_sFHnE7_mb8sSCBONAv8e594eGI2sIGOpQ-7OMeXpzDuEXaDHJQP8xjYQ7jAiNXPW4kZ1mSMQkeDHkNgY2hY-iL-7ncvv7n2Al9zoW9qx1YyTGzseB45GNxX6LpcjinTCL9X_8IkCld2n65O4fA"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Science Fiction</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Beyond the Singularity</h4>
+<p class="text-sm text-on-surface-variant mb-3">Aria Stark</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(256)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$24.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 7 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Old library books with textured covers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4Yhh8YaojWP45xXsCRGWpllK9ankZRBCPTZXsJ0RBZNbdyGm6zFVUlhevEirMaNFaSp7j5zkk3bSWfmGNZ4YwlRqr6e5zSY_qERybbhDPZ8t1CLBe655WkAUlaKUzKfYLCxiRcAwEDEMHtoEDy0nACIt0g0t30n5V322CA17RyWw8oEAsYLH1EQR4eRSpat1YWlRXfOvB7fLr547Zi1PL23U3krOhlxx1KpfDeRY_hOctqkmloEibrJ1cq611aHyWYJR3lx5IQOU"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">History</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Legacy of the Ancients</h4>
+<p class="text-sm text-on-surface-variant mb-3">Professor Henry Walton</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]">star_half</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(12)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$32.00</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Card 8 -->
+<div class="group bg-surface-container-lowest rounded-lg p-5 transition-all duration-300 hover:shadow-[0px_24px_48px_-12px_rgba(74,64,224,0.08)]">
+<div class="aspect-[3/4] rounded-md overflow-hidden bg-surface-container-low mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of a book showing individual pages" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmE7pRWQaQnsTnuq9EzLaaSqo6HKvzFRMsSHXs3s0yKTmGrx_tr2O7H2PqFeLW9p9BGNM15kZ_44Vh-GheASiJMJZqxUfmBpJla3xZFLajtPApKpxSgY3hzDhHOSLC0XXDPmizRSHzDVsStpk_kRPogrh8clIYyz8pr4Y6D_1tAmBU70Kev4ZxrvbmLPVTv7Kv6vUrqlf2ksd2hwBqvBmMOAdOAihxgOw5huP0tATwOVPzQ4bW7uDB5fQJlV0eBSTkStLLoh2PjH4"/>
+</div>
+<div class="space-y-1">
+<p class="text-xs font-bold text-primary uppercase tracking-widest">Programming</p>
+<h4 class="text-lg font-bold text-on-surface leading-tight group-hover:text-primary transition-colors">Mastering Python 5</h4>
+<p class="text-sm text-on-surface-variant mb-3">Devin Parker</p>
+<div class="flex items-center gap-1 text-amber-400 mb-4">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-xs text-on-surface-variant font-medium ml-1">(730)</span>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="text-xl font-black text-on-surface">$49.99</span>
+<button class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface hover:bg-primary hover:text-white transition-all duration-300 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">add_shopping_cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-20 flex justify-center items-center gap-2">
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center bg-primary text-white font-bold">1</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors font-bold">2</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors font-bold">3</button>
+<span class="px-2 text-on-surface-variant">...</span>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors font-bold">50</button>
+<button class="w-12 h-12 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-slate-50 dark:bg-slate-950 w-full py-12 px-8 mt-20 border-t border-slate-200/50">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8 max-w-screen-2xl mx-auto">
+<div class="col-span-2 md:col-span-1">
+<div class="text-xl font-bold text-slate-900 mb-6">SmartBook AI</div>
+<p class="text-sm text-slate-500 leading-relaxed mb-6">Providing intelligent reading experiences through curated AI-driven recommendations and a vast digital library.</p>
+<div class="flex gap-4">
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">public</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center hover:bg-primary hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Shop</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Categories</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Bestsellers</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">New Arrivals</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Deals</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Help Center</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Shipping Info</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Returns</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Track Order</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Company</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Contact</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Careers</a></li>
+<li><a class="text-slate-500 hover:text-indigo-500 transition-colors text-sm" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h4 class="font-bold text-slate-900 mb-6 uppercase text-xs tracking-widest">Newsletter</h4>
+<div class="space-y-4">
+<p class="text-sm text-slate-500">Subscribe for AI-curated reading lists.</p>
+<div class="flex">
+<input class="w-full bg-white border-none rounded-l-lg text-sm px-4 focus:ring-1 focus:ring-primary" placeholder="Email address" type="email"/>
+<button class="bg-primary text-white px-4 py-2 rounded-r-lg hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto pt-12 mt-12 border-t border-slate-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-sm text-slate-500">© 2024 SmartBook AI Store. Curating intelligence for readers.</p>
+<div class="flex items-center gap-6">
+<a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary transition-colors" href="#">Cookies Settings</a>
+</div>
+</div>
+</footer>
+</body></html>
