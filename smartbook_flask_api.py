@@ -346,21 +346,30 @@ def validate_resources(frame: pd.DataFrame, sim: np.ndarray | None) -> None:
 
 
 
-def initialize_resources() -> None:
-    global df, tfidf, similarity, startup_error
-    try:
-        df = load_dataframe()
-        tfidf = load_vectorizer()
-        similarity = load_similarity()
-        validate_resources(df, similarity)
-        startup_error = None
-        logger.info("Startup complete | books=%s | similarity_shape=%s", len(df), similarity.shape)
-    except Exception as exc:
-        df = pd.DataFrame()
-        tfidf = None
-        similarity = None
-        startup_error = str(exc)
-        logger.exception("Startup failed: %s", exc)
+def initialize_resources():
+    global df, vectorizer, similarity
+
+    print("Loading dataset...")
+    df = pd.read_csv(DATA_FILE)
+
+    # ===== VECTOR LOADER =====
+    if not os.path.exists(VECTORIZER_FILE):
+        print("Vectorizer missing → rebuilding AI artifacts...")
+        os.system("python smartbook_ai_pipeline.py")
+
+    print("Loading vectorizer...")
+    with open(VECTORIZER_FILE, "rb") as f:
+        vectorizer = pickle.load(f)
+
+    # ===== SIMILARITY LOADER =====
+    if not os.path.exists(SIMILARITY_FILE):
+        print("Similarity matrix missing → rebuilding AI artifacts...")
+        os.system("python smartbook_ai_pipeline.py")
+
+    print("Loading similarity matrix...")
+    similarity = np.load(SIMILARITY_FILE)
+
+    print("AI resources ready.")
 
 
 @lru_cache(maxsize=1)
